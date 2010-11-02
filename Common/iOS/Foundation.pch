@@ -1,0 +1,16 @@
+// Precompiled header for Foundation-only targets.
+
+#import "Common.h"
+#import "../Mac/Foundation.pch"
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+
+	#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
+		#define ILClassConformsTo_iPhone_4_0(x) < x >
+		#define ILClassAlsoConformsTo_iPhone_4_0(...) __VA_ARGS__
+	#else
+		#define ILClassConformsTo_iPhone_4_0(x)
+		#define ILClassAlsoConformsTo_iPhone_4_0(...)
+	#endif
+#endif

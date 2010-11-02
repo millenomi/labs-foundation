@@ -1,0 +1,14 @@
+// Precompiled header for UIKit (iPhone) applications.
+
+#import "Common.h"
+
+#import <Availability.h>
+
+#ifdef __OBJC__
+#if TARGET_OS_IPHONE
+
+	#import <UIKit/UIKit.h>
+	#define UIApp ([UIApplication sharedApplication])
+
+#endif // TARGET_OS_IPHONE
+#endif // __OBJC__
