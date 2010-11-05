@@ -20,10 +20,10 @@
 		
 		[bundle loadNibNamed:name owner:self options:nil];
 		
-		NSAssert(cellContentView, @"Connect the cellContentView outlet in the NIB for this class!");
+		NSAssert(self.cellContentView, @"Connect the cellContentView outlet in the NIB for this class!");
 		
-		cellContentView.frame = self.contentView.bounds;
-		[self.contentView addSubview:cellContentView];
+		self.cellContentView.frame = self.contentView.bounds;
+		[self.contentView addSubview:self.cellContentView];
 		
 	}
 	
@@ -42,7 +42,7 @@
 
 - (void) dealloc
 {
-	[cellContentView release];
+	self.cellContentView = nil;
 	[super dealloc];
 }
 
@@ -51,5 +51,7 @@
 {
 	return NSStringFromClass(self);
 }
+
+@synthesize cellContentView;
 
 @end
