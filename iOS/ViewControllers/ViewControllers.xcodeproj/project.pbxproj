@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15E648881286BC4F005975D2 /* ILFauxActionSheetWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */; };
+		15E648891286BC4F005975D2 /* ILFauxActionSheetWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */; };
 		15FBF1D712817EE7005D68B6 /* ILPartController.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FBF1D312817EE7005D68B6 /* ILPartController.h */; };
 		15FBF1D812817EE7005D68B6 /* ILPartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FBF1D412817EE7005D68B6 /* ILPartController.m */; };
 		15FBF1D912817EE7005D68B6 /* ILViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FBF1D512817EE7005D68B6 /* ILViewController.h */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILFauxActionSheetWindow.h; sourceTree = "<group>"; };
+		15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILFauxActionSheetWindow.m; sourceTree = "<group>"; };
 		15FBF1D312817EE7005D68B6 /* ILPartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILPartController.h; sourceTree = "<group>"; };
 		15FBF1D412817EE7005D68B6 /* ILPartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILPartController.m; sourceTree = "<group>"; };
 		15FBF1D512817EE7005D68B6 /* ILViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILViewController.h; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 				15FBF1D412817EE7005D68B6 /* ILPartController.m */,
 				15FBF1D512817EE7005D68B6 /* ILViewController.h */,
 				15FBF1D612817EE7005D68B6 /* ILViewController.m */,
+				15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */,
+				15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -93,6 +99,7 @@
 				AA747D9F0F9514B9006C5449 /* ViewControllers_Prefix.pch in Headers */,
 				15FBF1D712817EE7005D68B6 /* ILPartController.h in Headers */,
 				15FBF1D912817EE7005D68B6 /* ILViewController.h in Headers */,
+				15E648881286BC4F005975D2 /* ILFauxActionSheetWindow.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +155,7 @@
 			files = (
 				15FBF1D812817EE7005D68B6 /* ILPartController.m in Sources */,
 				15FBF1DA12817EE7005D68B6 /* ILViewController.m in Sources */,
+				15E648891286BC4F005975D2 /* ILFauxActionSheetWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +176,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ViewControllers_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = ViewControllers;
 			};
 			name = Debug;
@@ -182,6 +191,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ViewControllers_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = ViewControllers;
 			};
 			name = Release;

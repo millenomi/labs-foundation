@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		15D4364712844EAC005DBAE3 /* ILNIBTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D4364512844EAC005DBAE3 /* ILNIBTableViewCell.h */; };
 		15D4364812844EAC005DBAE3 /* ILNIBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D4364612844EAC005DBAE3 /* ILNIBTableViewCell.m */; };
+		15E648391286B8F6005975D2 /* ILStretchableImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648371286B8F6005975D2 /* ILStretchableImageButton.h */; };
+		15E6483A1286B8F6005975D2 /* ILStretchableImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E648381286B8F6005975D2 /* ILStretchableImageButton.m */; };
 		AA747D9F0F9514B9006C5449 /* NIBTableViewCells_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* NIBTableViewCells_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -16,9 +18,11 @@
 /* Begin PBXFileReference section */
 		15D4364512844EAC005DBAE3 /* ILNIBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILNIBTableViewCell.h; sourceTree = "<group>"; };
 		15D4364612844EAC005DBAE3 /* ILNIBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILNIBTableViewCell.m; sourceTree = "<group>"; };
+		15E648371286B8F6005975D2 /* ILStretchableImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILStretchableImageButton.h; sourceTree = "<group>"; };
+		15E648381286B8F6005975D2 /* ILStretchableImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILStretchableImageButton.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* NIBTableViewCells_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIBTableViewCells_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D2AAC07E0554694100DB518D /* libNIBTableViewCells.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNIBTableViewCells.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2AAC07E0554694100DB518D /* libControls.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libControls.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +40,7 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libNIBTableViewCells.a */,
+				D2AAC07E0554694100DB518D /* libControls.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +69,8 @@
 			children = (
 				15D4364512844EAC005DBAE3 /* ILNIBTableViewCell.h */,
 				15D4364612844EAC005DBAE3 /* ILNIBTableViewCell.m */,
+				15E648371286B8F6005975D2 /* ILStretchableImageButton.h */,
+				15E648381286B8F6005975D2 /* ILStretchableImageButton.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -86,15 +92,16 @@
 			files = (
 				AA747D9F0F9514B9006C5449 /* NIBTableViewCells_Prefix.pch in Headers */,
 				15D4364712844EAC005DBAE3 /* ILNIBTableViewCell.h in Headers */,
+				15E648391286B8F6005975D2 /* ILStretchableImageButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2AAC07D0554694100DB518D /* NIBTableViewCells */ = {
+		D2AAC07D0554694100DB518D /* Controls */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "NIBTableViewCells" */;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Controls" */;
 			buildPhases = (
 				D2AAC07A0554694100DB518D /* Headers */,
 				D2AAC07B0554694100DB518D /* Sources */,
@@ -104,9 +111,9 @@
 			);
 			dependencies = (
 			);
-			name = NIBTableViewCells;
+			name = Controls;
 			productName = NIBTableViewCells;
-			productReference = D2AAC07E0554694100DB518D /* libNIBTableViewCells.a */;
+			productReference = D2AAC07E0554694100DB518D /* libControls.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -114,7 +121,7 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "NIBTableViewCells" */;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Controls" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -129,7 +136,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* NIBTableViewCells */,
+				D2AAC07D0554694100DB518D /* Controls */,
 			);
 		};
 /* End PBXProject section */
@@ -140,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15D4364812844EAC005DBAE3 /* ILNIBTableViewCell.m in Sources */,
+				15E6483A1286B8F6005975D2 /* ILStretchableImageButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,7 +169,7 @@
 				GCC_PREFIX_HEADER = NIBTableViewCells_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				PRODUCT_NAME = NIBTableViewCells;
+				PRODUCT_NAME = Controls;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -177,7 +185,7 @@
 				GCC_PREFIX_HEADER = NIBTableViewCells_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				PRODUCT_NAME = NIBTableViewCells;
+				PRODUCT_NAME = Controls;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -212,7 +220,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "NIBTableViewCells" */ = {
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Controls" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,
@@ -221,7 +229,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "NIBTableViewCells" */ = {
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Controls" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
