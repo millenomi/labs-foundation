@@ -25,6 +25,9 @@
 @protocol ILFauxActionSheetDelegate <NSObject>
 
 @optional
+- (void) fauxActionSheetWindow:(ILFauxActionSheetWindow*) window willAppearWithAnimationDuration:(CGFloat) duration curve:(UIViewAnimationCurve) curve finalContentViewFrame:(CGRect) frame;
+
+- (void) fauxActionSheetWindowWillDismiss:(ILFauxActionSheetWindow*) window;
 - (void) fauxActionSheetWindowDidDismiss:(ILFauxActionSheetWindow*) window;
 
 @end

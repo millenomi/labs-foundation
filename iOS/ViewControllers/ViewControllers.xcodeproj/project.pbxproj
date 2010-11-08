@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1556B1CF128859FA0082395C /* ILViewAnimationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556B1CE128859FA0082395C /* ILViewAnimationTools.h */; };
 		15E648881286BC4F005975D2 /* ILFauxActionSheetWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */; };
 		15E648891286BC4F005975D2 /* ILFauxActionSheetWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */; };
 		15FBF1D712817EE7005D68B6 /* ILPartController.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FBF1D312817EE7005D68B6 /* ILPartController.h */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1556B1CE128859FA0082395C /* ILViewAnimationTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILViewAnimationTools.h; sourceTree = "<group>"; };
 		15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILFauxActionSheetWindow.h; sourceTree = "<group>"; };
 		15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILFauxActionSheetWindow.m; sourceTree = "<group>"; };
 		15FBF1D312817EE7005D68B6 /* ILPartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILPartController.h; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				15FBF1D612817EE7005D68B6 /* ILViewController.m */,
 				15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */,
 				15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */,
+				1556B1CE128859FA0082395C /* ILViewAnimationTools.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -100,6 +103,7 @@
 				15FBF1D712817EE7005D68B6 /* ILPartController.h in Headers */,
 				15FBF1D912817EE7005D68B6 /* ILViewController.h in Headers */,
 				15E648881286BC4F005975D2 /* ILFauxActionSheetWindow.h in Headers */,
+				1556B1CF128859FA0082395C /* ILViewAnimationTools.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

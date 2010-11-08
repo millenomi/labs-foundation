@@ -83,6 +83,12 @@
 {
 	if (ani) {
 		
+		if ([self.fauxActionSheetDelegate respondsToSelector:@selector(fauxActionSheetWindow:willAppearWithAnimationDuration:curve:finalContentViewFrame:)]) {
+			
+			[self.fauxActionSheetDelegate fauxActionSheetWindow:self willAppearWithAnimationDuration:0.28 curve:UIViewAnimationCurveEaseInOut finalContentViewFrame:self.frameForContentView];
+			
+		}
+		
 		self.contentView.frame = self.entranceAnimationFrameForContentView;
 		
 		[self makeKeyAndVisible];
@@ -100,6 +106,12 @@
 		
 	} else {
 		
+		if ([self.fauxActionSheetDelegate respondsToSelector:@selector(fauxActionSheetWindow:willAppearWithAnimationDuration:curve:finalContentViewFrame:)]) {
+			
+			[self.fauxActionSheetDelegate fauxActionSheetWindow:self willAppearWithAnimationDuration:0 curve:UIViewAnimationCurveLinear finalContentViewFrame:self.frameForContentView];
+			
+		}
+		
 		self.contentView.frame = self.frameForContentView;
 		self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
 		[self makeKeyAndVisible];
@@ -109,6 +121,9 @@
 
 - (void) dismissAnimated:(BOOL) ani;
 {
+	if ([self.fauxActionSheetDelegate respondsToSelector:@selector(fauxActionSheetWindowWillDismiss:)])
+		[self.fauxActionSheetDelegate fauxActionSheetWindowWillDismiss:self];
+	
 	if (ani) {
 		[UIView animateWithDuration:0.28 delay:0.0
 							options:UIViewAnimationOptionCurveEaseInOut
