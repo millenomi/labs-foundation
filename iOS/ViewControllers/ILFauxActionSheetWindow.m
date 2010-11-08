@@ -101,7 +101,12 @@
 							 self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
 							 
 						 }
-						 completion:NULL];
+						 completion:^(BOOL done) {
+							 
+							 if ([self.fauxActionSheetDelegate respondsToSelector:@selector(fauxActionSheetWindow:didAppearWithFinalContentViewFrame:)])
+								 [self.fauxActionSheetDelegate fauxActionSheetWindow:self didAppearWithFinalContentViewFrame:self.contentView.frame];
+							 
+						 }];
 		
 		
 	} else {
@@ -116,6 +121,8 @@
 		self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
 		[self makeKeyAndVisible];
 		
+		if ([self.fauxActionSheetDelegate respondsToSelector:@selector(fauxActionSheetWindow:didAppearWithFinalContentViewFrame:)])
+			[self.fauxActionSheetDelegate fauxActionSheetWindow:self didAppearWithFinalContentViewFrame:self.contentView.frame];		
 	}
 }
 
