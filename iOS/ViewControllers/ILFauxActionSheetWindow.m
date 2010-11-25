@@ -7,14 +7,15 @@
 //
 
 #import "ILFauxActionSheetWindow.h"
+#import "ILReversibleCoreography.h"
+#import "ILSlideFromBottomCoreography.h"
 
 @interface ILFauxActionSheetWindow ()
 
 @property(retain) UIView* contentView;
 
-@property(readonly) CGRect frameForContentView;
-@property(readonly) CGRect entranceAnimationFrameForContentView;
-@property(readonly) CGRect exitAnimationFrameForContentView;
+- (ILReversibleCoreography*) coreography;
+@property(retain) ILReversibleCoreography* currentCoreography;
 
 @end
 
@@ -36,7 +37,6 @@
 		self.frame = [[UIScreen mainScreen] bounds];
 		
 		self.contentView = view;
-		view.frame = self.frameForContentView;
 		[self addSubview:view];
 	}
 	
@@ -46,11 +46,13 @@
 - (void) dealloc
 {
 	self.contentView = nil;
+	self.currentCoreography = nil;
 	[super dealloc];
 }
 
 @synthesize fauxActionSheetDelegate;
 @synthesize contentView;
+@synthesize currentCoreography;
 
 - (CGRect) frameForContentView;
 {	
@@ -63,20 +65,17 @@
 	return viewFrame;
 }
 
-- (CGRect) entranceAnimationFrameForContentView;
+- (ILReversibleCoreography*) coreography;
 {
-	CGRect bounds = self.bounds;
-	CGRect viewFrame = self.contentView.frame;
+	ILReversibleCoreography* c = nil;
+	if ([self.fauxActionSheetDelegate respondsToSelector:@selector(coreographyForContentViewOfFauxActionSheetWindow:)])
+		c = [self.fauxActionSheetDelegate coreographyForContentViewOfFauxActionSheetWindow:self];
 	
-	viewFrame.origin.x = 0;
-	viewFrame.origin.y = bounds.size.height;
+	if (!c)
+		c = [[ILSlideFromBottomCoreography new] autorelease];
 	
-	return viewFrame;
-}
-
-- (CGRect) exitAnimationFrameForContentView;
-{
-	return self.entranceAnimationFrameForContentView;
+	c.view = self.contentView;
+	return c;
 }
 
 - (void) showAnimated:(BOOL) ani;
@@ -89,7 +88,8 @@
 			
 		}
 		
-		self.contentView.frame = self.entranceAnimationFrameForContentView;
+		self.currentCoreography = [self coreography];
+		[self.currentCoreography prepareForAnimation];
 		
 		[self makeKeyAndVisible];
 		
@@ -97,8 +97,8 @@
 							options:UIViewAnimationOptionCurveEaseInOut
 						 animations:^{
 							 
-							 self.contentView.frame = self.frameForContentView;
 							 self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+							 [self.currentCoreography animate];
 							 
 						 }
 						 completion:^(BOOL done) {
@@ -132,12 +132,14 @@
 		[self.fauxActionSheetDelegate fauxActionSheetWindowWillDismiss:self];
 	
 	if (ani) {
+		[self.currentCoreography prepareForReversing];
+		
 		[UIView animateWithDuration:0.28 delay:0.0
 							options:UIViewAnimationOptionCurveEaseInOut
 						 animations:^{
 							 
-							 self.contentView.frame = self.exitAnimationFrameForContentView;
 							 self.backgroundColor = [UIColor clearColor];
+							 [self.currentCoreography reverse];
 							 
 						 }
 						 completion:^(BOOL done) {
@@ -145,6 +147,8 @@
 							 self.hidden = YES;
 							 if ([self.fauxActionSheetDelegate respondsToSelector:@selector(fauxActionSheetWindowDidDismiss:)])
 								 [self.fauxActionSheetDelegate fauxActionSheetWindowDidDismiss:self];
+							 
+							 self.currentCoreography = nil;
 							 
 						 }];
 		

@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1556B1CF128859FA0082395C /* ILViewAnimationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556B1CE128859FA0082395C /* ILViewAnimationTools.h */; };
+		155A6E82129EBCFD00464FF1 /* ILCoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6E80129EBCFD00464FF1 /* ILCoreography.h */; };
+		155A6E83129EBCFD00464FF1 /* ILCoreography.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A6E81129EBCFD00464FF1 /* ILCoreography.m */; };
+		155A6E8C129EBDCD00464FF1 /* ILSlideFromBottomCoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6E8A129EBDCD00464FF1 /* ILSlideFromBottomCoreography.h */; };
+		155A6E8D129EBDCD00464FF1 /* ILSlideFromBottomCoreography.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A6E8B129EBDCD00464FF1 /* ILSlideFromBottomCoreography.m */; };
+		155A6E90129EC01200464FF1 /* ILReversibleCoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6E8E129EC01200464FF1 /* ILReversibleCoreography.h */; };
+		155A6E91129EC01200464FF1 /* ILReversibleCoreography.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A6E8F129EC01200464FF1 /* ILReversibleCoreography.m */; };
+		155A6EC8129EC37400464FF1 /* ILGrowFromPointCoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6EC6129EC37400464FF1 /* ILGrowFromPointCoreography.h */; };
+		155A6EC9129EC37400464FF1 /* ILGrowFromPointCoreography.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A6EC7129EC37400464FF1 /* ILGrowFromPointCoreography.m */; };
 		15E648881286BC4F005975D2 /* ILFauxActionSheetWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */; };
 		15E648891286BC4F005975D2 /* ILFauxActionSheetWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */; };
 		15FBF1D712817EE7005D68B6 /* ILPartController.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FBF1D312817EE7005D68B6 /* ILPartController.h */; };
@@ -20,6 +28,14 @@
 
 /* Begin PBXFileReference section */
 		1556B1CE128859FA0082395C /* ILViewAnimationTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILViewAnimationTools.h; sourceTree = "<group>"; };
+		155A6E80129EBCFD00464FF1 /* ILCoreography.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILCoreography.h; sourceTree = "<group>"; };
+		155A6E81129EBCFD00464FF1 /* ILCoreography.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILCoreography.m; sourceTree = "<group>"; };
+		155A6E8A129EBDCD00464FF1 /* ILSlideFromBottomCoreography.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSlideFromBottomCoreography.h; sourceTree = "<group>"; };
+		155A6E8B129EBDCD00464FF1 /* ILSlideFromBottomCoreography.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSlideFromBottomCoreography.m; sourceTree = "<group>"; };
+		155A6E8E129EC01200464FF1 /* ILReversibleCoreography.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILReversibleCoreography.h; sourceTree = "<group>"; };
+		155A6E8F129EC01200464FF1 /* ILReversibleCoreography.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILReversibleCoreography.m; sourceTree = "<group>"; };
+		155A6EC6129EC37400464FF1 /* ILGrowFromPointCoreography.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILGrowFromPointCoreography.h; sourceTree = "<group>"; };
+		155A6EC7129EC37400464FF1 /* ILGrowFromPointCoreography.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILGrowFromPointCoreography.m; sourceTree = "<group>"; };
 		15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILFauxActionSheetWindow.h; sourceTree = "<group>"; };
 		15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILFauxActionSheetWindow.m; sourceTree = "<group>"; };
 		15FBF1D312817EE7005D68B6 /* ILPartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILPartController.h; sourceTree = "<group>"; };
@@ -80,8 +96,24 @@
 				15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */,
 				15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */,
 				1556B1CE128859FA0082395C /* ILViewAnimationTools.h */,
+				155A6E92129EC05D00464FF1 /* Coreographies */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		155A6E92129EC05D00464FF1 /* Coreographies */ = {
+			isa = PBXGroup;
+			children = (
+				155A6E80129EBCFD00464FF1 /* ILCoreography.h */,
+				155A6E81129EBCFD00464FF1 /* ILCoreography.m */,
+				155A6E8E129EC01200464FF1 /* ILReversibleCoreography.h */,
+				155A6E8F129EC01200464FF1 /* ILReversibleCoreography.m */,
+				155A6E8A129EBDCD00464FF1 /* ILSlideFromBottomCoreography.h */,
+				155A6E8B129EBDCD00464FF1 /* ILSlideFromBottomCoreography.m */,
+				155A6EC6129EC37400464FF1 /* ILGrowFromPointCoreography.h */,
+				155A6EC7129EC37400464FF1 /* ILGrowFromPointCoreography.m */,
+			);
+			name = Coreographies;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -104,6 +136,10 @@
 				15FBF1D912817EE7005D68B6 /* ILViewController.h in Headers */,
 				15E648881286BC4F005975D2 /* ILFauxActionSheetWindow.h in Headers */,
 				1556B1CF128859FA0082395C /* ILViewAnimationTools.h in Headers */,
+				155A6E82129EBCFD00464FF1 /* ILCoreography.h in Headers */,
+				155A6E8C129EBDCD00464FF1 /* ILSlideFromBottomCoreography.h in Headers */,
+				155A6E90129EC01200464FF1 /* ILReversibleCoreography.h in Headers */,
+				155A6EC8129EC37400464FF1 /* ILGrowFromPointCoreography.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +196,10 @@
 				15FBF1D812817EE7005D68B6 /* ILPartController.m in Sources */,
 				15FBF1DA12817EE7005D68B6 /* ILViewController.m in Sources */,
 				15E648891286BC4F005975D2 /* ILFauxActionSheetWindow.m in Sources */,
+				155A6E83129EBCFD00464FF1 /* ILCoreography.m in Sources */,
+				155A6E8D129EBDCD00464FF1 /* ILSlideFromBottomCoreography.m in Sources */,
+				155A6E91129EC01200464FF1 /* ILReversibleCoreography.m in Sources */,
+				155A6EC9129EC37400464FF1 /* ILGrowFromPointCoreography.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

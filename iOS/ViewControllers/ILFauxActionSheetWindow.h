@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ILReversibleCoreography;
 
 @protocol ILFauxActionSheetDelegate;
 
@@ -30,5 +31,7 @@
 
 - (void) fauxActionSheetWindowWillDismiss:(ILFauxActionSheetWindow*) window;
 - (void) fauxActionSheetWindowDidDismiss:(ILFauxActionSheetWindow*) window;
+
+- (ILReversibleCoreography*) coreographyForContentViewOfFauxActionSheetWindow:(ILFauxActionSheetWindow*) window;
 
 @end
