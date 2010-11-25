@@ -6,9 +6,9 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "ILSlideFromBottomCoreography.h"
+#import "ILSlideFromBottomChoreography.h"
 
-@interface ILSlideFromBottomCoreography ()
+@interface ILSlideFromBottomChoreography ()
 
 @property(readonly) CGRect frameForView;
 @property(readonly) CGRect entranceAnimationFrameForView;
@@ -18,7 +18,7 @@
 
 
 
-@implementation ILSlideFromBottomCoreography
+@implementation ILSlideFromBottomChoreography
 
 - (void) dealloc
 {

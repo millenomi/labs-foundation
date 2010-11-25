@@ -6,10 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "ILCoreography.h"
+#import "ILChoreography.h"
 #define ILAssertImplemented() [NSException raise:@"ILCoreographyUnimplementedException" format:@"Class %@ does not implement abstract method %s.", [self class], __func__]
 
-@implementation ILCoreography
+@implementation ILChoreography
 
 - (void) dealloc
 {
@@ -41,7 +41,7 @@
 
 + coreographyForView:(UIView*) v;
 {
-	ILCoreography* c = [[self new] autorelease];
+	ILChoreography* c = [[self new] autorelease];
 	c.view = v;
 	return c;
 }

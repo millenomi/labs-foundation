@@ -7,15 +7,15 @@
 //
 
 #import "ILFauxActionSheetWindow.h"
-#import "ILReversibleCoreography.h"
-#import "ILSlideFromBottomCoreography.h"
+#import "ILReversibleChoreography.h"
+#import "ILSlideFromBottomChoreography.h"
 
 @interface ILFauxActionSheetWindow ()
 
 @property(retain) UIView* contentView;
 
-- (ILReversibleCoreography*) coreography;
-@property(retain) ILReversibleCoreography* currentCoreography;
+- (ILReversibleChoreography*) coreography;
+@property(retain) ILReversibleChoreography* currentCoreography;
 
 @end
 
@@ -65,14 +65,14 @@
 	return viewFrame;
 }
 
-- (ILReversibleCoreography*) coreography;
+- (ILReversibleChoreography*) coreography;
 {
-	ILReversibleCoreography* c = nil;
+	ILReversibleChoreography* c = nil;
 	if ([self.fauxActionSheetDelegate respondsToSelector:@selector(coreographyForContentViewOfFauxActionSheetWindow:)])
 		c = [self.fauxActionSheetDelegate coreographyForContentViewOfFauxActionSheetWindow:self];
 	
 	if (!c)
-		c = [[ILSlideFromBottomCoreography new] autorelease];
+		c = [[ILSlideFromBottomChoreography new] autorelease];
 	
 	c.view = self.contentView;
 	return c;

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ILCoreography : NSObject {
+@interface ILChoreography : NSObject {
 
 }
 

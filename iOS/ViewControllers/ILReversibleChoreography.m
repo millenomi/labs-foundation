@@ -6,11 +6,11 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "ILReversibleCoreography.h"
+#import "ILReversibleChoreography.h"
 #define ILAssertImplemented() [NSException raise:@"ILCoreographyUnimplementedException" format:@"Class %@ does not implement abstract method %s.", [self class], __func__]
 
 
-@implementation ILReversibleCoreography
+@implementation ILReversibleChoreography
 
 - (void) prepareForReversing;
 {}

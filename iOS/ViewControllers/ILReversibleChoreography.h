@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ILCoreography.h"
+#import "ILChoreography.h"
 
-@interface ILReversibleCoreography : ILCoreography {
+@interface ILReversibleChoreography : ILChoreography {
 
 }
 

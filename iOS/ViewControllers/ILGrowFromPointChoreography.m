@@ -6,16 +6,16 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "ILGrowFromPointCoreography.h"
+#import "ILGrowFromPointChoreography.h"
 
-@interface ILGrowFromPointCoreography ()
+@interface ILGrowFromPointChoreography ()
 
 @property(readonly) CGPoint actualGrowCenter;
 
 @end
 
 
-@implementation ILGrowFromPointCoreography
+@implementation ILGrowFromPointChoreography
 
 - (void) dealloc
 {

@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ILReversibleCoreography.h"
+#import "ILReversibleChoreography.h"
 
-@interface ILSlideFromBottomCoreography : ILReversibleCoreography {}
+@interface ILSlideFromBottomChoreography : ILReversibleChoreography {}
 
 @property(retain) UIView* slideContainerView;
 

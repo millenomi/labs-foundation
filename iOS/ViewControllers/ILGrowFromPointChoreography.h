@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ILReversibleCoreography.h"
+#import "ILReversibleChoreography.h"
 
-@interface ILGrowFromPointCoreography : ILReversibleCoreography {}
+@interface ILGrowFromPointChoreography : ILReversibleChoreography {}
 
 @property CGPoint finalCenter;
 
