@@ -16,8 +16,8 @@
 		155A6E91129EC01200464FF1 /* ILReversibleChoreography.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A6E8F129EC01200464FF1 /* ILReversibleChoreography.m */; };
 		155A6EC8129EC37400464FF1 /* ILGrowFromPointChoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6EC6129EC37400464FF1 /* ILGrowFromPointChoreography.h */; };
 		155A6EC9129EC37400464FF1 /* ILGrowFromPointChoreography.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A6EC7129EC37400464FF1 /* ILGrowFromPointChoreography.m */; };
-		15E648881286BC4F005975D2 /* ILFauxActionSheetWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */; };
-		15E648891286BC4F005975D2 /* ILFauxActionSheetWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */; };
+		15E648881286BC4F005975D2 /* ILCoverWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648861286BC4F005975D2 /* ILCoverWindow.h */; };
+		15E648891286BC4F005975D2 /* ILCoverWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E648871286BC4F005975D2 /* ILCoverWindow.m */; };
 		15FBF1D712817EE7005D68B6 /* ILPartController.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FBF1D312817EE7005D68B6 /* ILPartController.h */; };
 		15FBF1D812817EE7005D68B6 /* ILPartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FBF1D412817EE7005D68B6 /* ILPartController.m */; };
 		15FBF1D912817EE7005D68B6 /* ILViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FBF1D512817EE7005D68B6 /* ILViewController.h */; };
@@ -36,8 +36,8 @@
 		155A6E8F129EC01200464FF1 /* ILReversibleChoreography.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILReversibleChoreography.m; sourceTree = "<group>"; };
 		155A6EC6129EC37400464FF1 /* ILGrowFromPointChoreography.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILGrowFromPointChoreography.h; sourceTree = "<group>"; };
 		155A6EC7129EC37400464FF1 /* ILGrowFromPointChoreography.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILGrowFromPointChoreography.m; sourceTree = "<group>"; };
-		15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILFauxActionSheetWindow.h; sourceTree = "<group>"; };
-		15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILFauxActionSheetWindow.m; sourceTree = "<group>"; };
+		15E648861286BC4F005975D2 /* ILCoverWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILCoverWindow.h; sourceTree = "<group>"; };
+		15E648871286BC4F005975D2 /* ILCoverWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILCoverWindow.m; sourceTree = "<group>"; };
 		15FBF1D312817EE7005D68B6 /* ILPartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILPartController.h; sourceTree = "<group>"; };
 		15FBF1D412817EE7005D68B6 /* ILPartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILPartController.m; sourceTree = "<group>"; };
 		15FBF1D512817EE7005D68B6 /* ILViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILViewController.h; sourceTree = "<group>"; };
@@ -93,8 +93,8 @@
 				15FBF1D412817EE7005D68B6 /* ILPartController.m */,
 				15FBF1D512817EE7005D68B6 /* ILViewController.h */,
 				15FBF1D612817EE7005D68B6 /* ILViewController.m */,
-				15E648861286BC4F005975D2 /* ILFauxActionSheetWindow.h */,
-				15E648871286BC4F005975D2 /* ILFauxActionSheetWindow.m */,
+				15E648861286BC4F005975D2 /* ILCoverWindow.h */,
+				15E648871286BC4F005975D2 /* ILCoverWindow.m */,
 				1556B1CE128859FA0082395C /* ILViewAnimationTools.h */,
 				155A6E92129EC05D00464FF1 /* Coreographies */,
 			);
@@ -134,7 +134,7 @@
 				AA747D9F0F9514B9006C5449 /* ViewControllers_Prefix.pch in Headers */,
 				15FBF1D712817EE7005D68B6 /* ILPartController.h in Headers */,
 				15FBF1D912817EE7005D68B6 /* ILViewController.h in Headers */,
-				15E648881286BC4F005975D2 /* ILFauxActionSheetWindow.h in Headers */,
+				15E648881286BC4F005975D2 /* ILCoverWindow.h in Headers */,
 				1556B1CF128859FA0082395C /* ILViewAnimationTools.h in Headers */,
 				155A6E82129EBCFD00464FF1 /* ILChoreography.h in Headers */,
 				155A6E8C129EBDCD00464FF1 /* ILSlideFromBottomChoreography.h in Headers */,
@@ -195,7 +195,7 @@
 			files = (
 				15FBF1D812817EE7005D68B6 /* ILPartController.m in Sources */,
 				15FBF1DA12817EE7005D68B6 /* ILViewController.m in Sources */,
-				15E648891286BC4F005975D2 /* ILFauxActionSheetWindow.m in Sources */,
+				15E648891286BC4F005975D2 /* ILCoverWindow.m in Sources */,
 				155A6E83129EBCFD00464FF1 /* ILChoreography.m in Sources */,
 				155A6E8D129EBDCD00464FF1 /* ILSlideFromBottomChoreography.m in Sources */,
 				155A6E91129EC01200464FF1 /* ILReversibleChoreography.m in Sources */,

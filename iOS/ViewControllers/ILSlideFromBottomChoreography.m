@@ -30,6 +30,14 @@
 
 @synthesize slideContainerView;
 
+- (CGRect) finalFrameForViewWithRole:(NSString *)role;
+{
+	if ([role isEqual:kILChoreographyDefaultViewRole])
+		return self.frameForView;
+	else
+		return CGRectNull;
+}
+
 - (CGRect) frameForView;
 {	
 	UIView* v = self.view;

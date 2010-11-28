@@ -8,17 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+#define kILChoreographyDefaultViewRole @"ILChoreographyDefaultViewRole"
 
 @interface ILChoreography : NSObject {
-
+	NSMutableDictionary* mutableViews;
 }
 
-@property(copy) NSArray* views;
+@property(copy) NSDictionary* views;
+
+- (void) setView:(UIView *)v forRole:(NSString*) role;
+- (UIView*) viewForRole:(NSString*) role;
+
+- (CGRect) finalFrameForViewWithRole:(NSString*) role;
+
 @property(retain) UIView* view;
+@property(readonly) CGRect finalFrame;
 
 - (void) prepareForAnimation;
 - (void) animate;
 
-+ coreographyForView:(UIView*) v;
++ choreographyForView:(UIView*) v;
++ choreography;
 
 @end

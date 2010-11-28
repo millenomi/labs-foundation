@@ -14,6 +14,7 @@
 @property CGPoint finalCenter;
 
 // if nil, uses the view's final center (as determined by finalCenter).
-@property(copy) NSValue* growCenter;
+@property(copy) NSValue* growCenterValue;
+@property CGPoint growCenter;
 
 @end

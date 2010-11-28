@@ -10,8 +10,6 @@
 
 @interface ILGrowFromPointChoreography ()
 
-@property(readonly) CGPoint actualGrowCenter;
-
 @end
 
 
@@ -19,25 +17,29 @@
 
 - (void) dealloc
 {
-	self.growCenter = nil;
+	self.growCenterValue = nil;
 	[super dealloc];
 }
 
 
-@synthesize finalCenter, growCenter;
+@synthesize finalCenter, growCenterValue;
 
-- (CGPoint) actualGrowCenter;
+- (CGPoint) growCenter;
 {
-	return self.growCenter? [self.growCenter CGPointValue] : self.finalCenter;
+	return self.growCenterValue? [self.growCenterValue CGPointValue] : self.finalCenter;
 }
 
+- (void) setGrowCenter:(CGPoint) c;
+{
+	self.growCenterValue = [NSValue valueWithCGPoint:c];
+}
 
 - (void) prepareForAnimation;
 {
 	UIView* v = self.view;
 	NSAssert(v, @"You must set only one view.");
 	
-	v.center = self.actualGrowCenter;
+	v.center = self.growCenter;
 	v.transform = CGAffineTransformMakeScale(0.1, 0.1);
 	v.alpha = 0.0;
 }
@@ -57,7 +59,7 @@
 	UIView* v = self.view;
 	NSAssert(v, @"You must set only one view.");
 	
-	v.center = self.actualGrowCenter;
+	v.center = self.growCenter;
 	v.transform = CGAffineTransformMakeScale(0.1, 0.1);
 	v.alpha = 0.0;
 }

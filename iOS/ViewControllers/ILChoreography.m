@@ -11,24 +11,65 @@
 
 @implementation ILChoreography
 
+- (id) init;
+{
+	if ((self = [super init]))
+		mutableViews = [NSMutableDictionary new];
+	
+	return self;
+}
+
 - (void) dealloc
 {
+	[mutableViews release];
 	self.views = nil;
 	[super dealloc];
 }
 
 
 
-@synthesize views;
+- (NSDictionary *) views;
+{
+	return mutableViews;
+}
+
+- (void) setViews:(NSDictionary *) d;
+{
+	[mutableViews setDictionary:d];
+}
+
+- (void) setView:(UIView *)v forRole:(NSString*) role;
+{
+	if (v)
+		[mutableViews setObject:v forKey:role];
+	else
+		[mutableViews removeObjectForKey:role];
+}
+
+- (UIView*) viewForRole:(NSString*) role;
+{
+	return [mutableViews objectForKey:role];
+}
+
+- (CGRect) finalFrameForViewWithRole:(NSString*) role;
+{
+	UIView* v = [self viewForRole:role];
+	return v? v.frame : CGRectNull;
+}
 
 - (UIView *) view;
 {
-	return ([self.views count] == 1? [self.views objectAtIndex:0] : nil);
+	return [self viewForRole:kILChoreographyDefaultViewRole];
 }
 
 - (void) setView:(UIView *) v;
 {
-	self.views = [NSArray arrayWithObject:v];
+	[self setView:v forRole:kILChoreographyDefaultViewRole];
+}
+
+- (CGRect) finalFrame;
+{
+	return [self finalFrameForViewWithRole:kILChoreographyDefaultViewRole];
 }
 
 - (void) animate;
@@ -39,11 +80,16 @@
 - (void) prepareForAnimation;
 {}
 
-+ coreographyForView:(UIView*) v;
++ choreographyForView:(UIView*) v;
 {
-	ILChoreography* c = [[self new] autorelease];
+	ILChoreography* c = [self choreography];
 	c.view = v;
 	return c;
+}
+
++ choreography;
+{
+	return [[self new] autorelease];
 }
 
 @end
