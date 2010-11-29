@@ -146,8 +146,12 @@
 
 - (id) init;
 {
-	// we can't call -class on an object before we -init it, but we can access its isa pointer.
-	return [self initWithNibName:NSStringFromClass(self->isa) bundle:[self->isa nibBundle]];
+	return [self initWithNibName:nil bundle:[self->isa nibBundle]];
+}
+
++ viewController;
+{
+	return [[self new] autorelease];
 }
 
 #pragma mark Modal presentation
@@ -230,11 +234,27 @@
 
 #pragma mark Automatic outlet management
 
+- (NSSet*) startingManagedOutlets;
+{
+	return nil;
+}
+
 - (void) clearOutlets;
 {
 	for (NSString* key in managedOutlets)
 		[self setValue:nil forKey:key];
 }
+
+- (void) viewDidLoad;
+{
+	[super viewDidLoad];
+	
+	if (!hasSetInitialManagedOutlets) {
+		for (NSString* key in self.startingManagedOutlets)
+			[self addManagedOutletKey:key];
+		hasSetInitialManagedOutlets = YES;
+	}
+}		
 
 - (void) viewDidUnload;
 {

@@ -43,6 +43,7 @@ typedef NSInteger ILRotationStyle;
 	BOOL isHoldingRestoresForNavBarPush;
 	
 	NSMutableSet* managedOutlets;
+	BOOL hasSetInitialManagedOutlets;
 }
 
 @property ILRotationStyle rotationStyle;
@@ -69,6 +70,8 @@ typedef NSInteger ILRotationStyle;
 
 // convenience initializer; will call initWithNibName:bundle: with a nib name equal to the class name and the nib bundle returned by the class's +nibBundle method (the main bundle for the default implementation of that method).
 - (id) init;
+// same, autoreleased.
++ viewController;
 
 // creates a view controller hierarchy that can be presented modally. the returned view controller is not an instance of this class, but a wrapper that can be presented modally.
 // the variable whose pointer is passed as argument, if that pointer is not NULL, will on return be set to the instance of this class that's contained in the view controller hierarchy just returned (autoreleased as per THE RULES).
@@ -102,5 +105,8 @@ typedef NSInteger ILRotationStyle;
 
 // Convenience for adding many keys at once. End the list with nil.
 - (void) addManagedOutletKeys:(NSString *)key, ... __attribute__((sentinel));
+
+// Whatever set of keys is returned by this property is automatically added as managed outlets the first time the view is loaded. It may be nil or empty, in which case (obviously) no key is added. Default is nil.
+@property(nonatomic, readonly) NSSet* startingManagedOutlets;
 
 @end
