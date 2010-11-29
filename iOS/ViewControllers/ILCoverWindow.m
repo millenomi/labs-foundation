@@ -26,7 +26,7 @@
 
 - (id) initWithContentView:(UIView*) view;
 {
-	if ((self = [self init])) {		
+	if ((self = [super init])) {		
 		[self prepare];
 		self.contentView = view;
 	}
@@ -36,7 +36,7 @@
 
 - (id) initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle;
 {
-	if ((self = [self init])) {
+	if ((self = [super init])) {
 		if (!bundle)
 			bundle = [NSBundle bundleForClass:[self class]];
 		
