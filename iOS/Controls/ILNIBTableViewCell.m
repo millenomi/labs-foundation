@@ -23,6 +23,8 @@
 		NSAssert(self.cellContentView, @"Connect the cellContentView outlet in the NIB for this class!");
 		
 		self.cellContentView.frame = self.contentView.bounds;
+		self.cellContentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+		
 		[self.contentView addSubview:self.cellContentView];
 		
 	}
