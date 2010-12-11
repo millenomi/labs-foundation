@@ -210,7 +210,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(VALID_ARCHS)";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/ViewControllers.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -222,6 +222,7 @@
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = ViewControllers;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -229,7 +230,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(VALID_ARCHS)";
 				DSTROOT = /tmp/ViewControllers.dst;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -237,6 +238,7 @@
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = ViewControllers;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
