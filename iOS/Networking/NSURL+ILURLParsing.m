@@ -64,12 +64,15 @@
 	for (NSString* key in self) {
 		if (!first)
 			[queryString appendString:@"&"];
-		[queryString appendString:[key stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+		
+		NSString* toAppend = [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef) key, NULL, NULL, kCFStringEncodingUTF8)) autorelease];
+		[queryString appendString:toAppend];
 		
 		id value = [self objectForKey:key];
 		if (![value isEqual:[NSNull null]]) {
 			[queryString appendString:@"="];
-			[queryString appendString:[value stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+			NSString* toAppend = [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef) value, NULL, NULL, kCFStringEncodingUTF8)) autorelease];
+			[queryString appendString:toAppend];
 		}
 		
 		first = NO;

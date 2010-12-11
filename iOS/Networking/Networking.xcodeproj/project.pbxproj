@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1552D96F12B3D57200EA8317 /* ILHostReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 1552D96D12B3D57200EA8317 /* ILHostReachability.h */; };
+		1552D97012B3D57200EA8317 /* ILHostReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1552D96E12B3D57200EA8317 /* ILHostReachability.m */; };
 		15E649801286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497A1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m */; };
 		15E649811286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */; };
 		15E649821286CA0E005975D2 /* NSURL+ILURLParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497C1286CA0E005975D2 /* NSURL+ILURLParsing.m */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1552D96D12B3D57200EA8317 /* ILHostReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILHostReachability.h; sourceTree = "<group>"; };
+		1552D96E12B3D57200EA8317 /* ILHostReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILHostReachability.m; sourceTree = "<group>"; };
 		15E6497A1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ILURLResolvingRedirects.m"; sourceTree = "<group>"; };
 		15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ILURLResolvingRedirects.h"; sourceTree = "<group>"; };
 		15E6497C1286CA0E005975D2 /* NSURL+ILURLParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ILURLParsing.m"; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1552D96D12B3D57200EA8317 /* ILHostReachability.h */,
+				1552D96E12B3D57200EA8317 /* ILHostReachability.m */,
 				15E6497A1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m */,
 				15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */,
 				15E6497C1286CA0E005975D2 /* NSURL+ILURLParsing.m */,
@@ -100,6 +106,7 @@
 				15E649811286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h in Headers */,
 				15E649831286CA0E005975D2 /* NSURL+ILURLParsing.h in Headers */,
 				15E649851286CA0E005975D2 /* NSData+ILIPAddressTools.h in Headers */,
+				1552D96F12B3D57200EA8317 /* ILHostReachability.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +163,7 @@
 				15E649801286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m in Sources */,
 				15E649821286CA0E005975D2 /* NSURL+ILURLParsing.m in Sources */,
 				15E649841286CA0E005975D2 /* NSData+ILIPAddressTools.m in Sources */,
+				1552D97012B3D57200EA8317 /* ILHostReachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
