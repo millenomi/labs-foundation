@@ -82,9 +82,12 @@
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
+	self.contentView = nil;
+	if (self.coverDelegate == self && [self respondsToSelector:@selector(coverWindowDidUnloadContentView:)])
+		[self.coverDelegate coverWindowDidUnloadContentView:self];
+	
 	self.nibName = nil;
 	self.bundle = nil;
-	self.contentView = nil;
 	self.currentChoreography = nil;
 	[super dealloc];
 }
