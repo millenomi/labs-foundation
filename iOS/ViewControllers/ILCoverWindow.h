@@ -12,10 +12,9 @@
 @protocol ILCoverWindowDelegate;
 
 
-@interface ILCoverWindow : UIWindow {
-	UIView* contentView;
-}
+@interface ILCoverWindow : UIWindow
 
+- (id) init;
 - (id) initWithNibName:(NSString*) nibName bundle:(NSBundle*) bundle;
 - (id) initWithContentView:(UIView*) view;
 
@@ -28,6 +27,10 @@
 
 @property(retain) IBOutlet UIView* contentView;
 
+- (IBAction) dismiss; // dismissAnimated:YES
+
+- (void) loadNIBIfNeeded;
+
 @end
 
 
@@ -39,6 +42,9 @@
 
 - (void) coverWindowWillDismiss:(ILCoverWindow*) window;
 - (void) coverWindowDidDismiss:(ILCoverWindow*) window;
+
+- (void) coverWindowDidLoadContentView:(ILCoverWindow*) window;
+- (void) coverWindowDidUnloadContentView:(ILCoverWindow*) window;
 
 - (ILReversibleChoreography*) choreographyForContentViewOfCoverWindow:(ILCoverWindow*) window;
 

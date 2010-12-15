@@ -10,7 +10,7 @@
 #import "ILReversibleChoreography.h"
 #import "ILSlideFromBottomChoreography.h"
 
-@interface ILCoverWindow ()
+@interface ILCoverWindow () <ILCoverWindowDelegate>
 
 - (ILReversibleChoreography*) choreography;
 @property(retain) ILReversibleChoreography* currentChoreography;
@@ -19,10 +19,18 @@
 
 - (void) prepare;
 
+@property(nonatomic, copy) NSString* nibName;
+@property(nonatomic, retain) NSBundle* bundle;
+
 @end
 
 
 @implementation ILCoverWindow
+
+- (id) init;
+{
+	return [self initWithNibName:nil bundle:nil];
+}
 
 - (id) initWithContentView:(UIView*) view;
 {
@@ -37,11 +45,15 @@
 - (id) initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle;
 {
 	if ((self = [super init])) {
+		
 		if (!bundle)
 			bundle = [NSBundle bundleForClass:[self class]];
+		if (!nibName)
+			nibName = NSStringFromClass([self class]);
+ 		
+		self.nibName = nibName;
+		self.bundle = bundle;
 		
-		[bundle loadNibNamed:nibName owner:self options:nil];
-		NSAssert(self.contentView, @"If you load a cover window's content view using a NIB, you must set the cover window's .coverView outlet!");
 		[self prepare];
 	}
 	
@@ -50,6 +62,8 @@
 
 - (void) prepare;
 {
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning:) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+	
 	self.opaque = NO;
 	
 	// above windows, below alerts.
@@ -57,19 +71,34 @@
 	
 	self.backgroundColor = [UIColor clearColor];
 	
+	if ([self respondsToSelector:@selector(screen)])
 	self.screen = [UIScreen mainScreen];
 	self.frame = [[UIScreen mainScreen] bounds];
+	
+	self.coverDelegate = self;
 }
 
 - (void) dealloc
 {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	
+	self.nibName = nil;
+	self.bundle = nil;
 	self.contentView = nil;
 	self.currentChoreography = nil;
 	[super dealloc];
 }
 
+@synthesize nibName, bundle;
 
 @synthesize contentView;
+
+- (UIView *) contentView;
+{
+	[self loadNIBIfNeeded];	
+	return contentView;
+}
+
 - (void) setContentView:(UIView *) v;
 {
 	if (v != contentView) {
@@ -78,6 +107,27 @@
 		
 		contentView = [v retain];
 		[self addSubview:contentView];
+	}
+}
+
+- (void) loadNIBIfNeeded;
+{
+	if (contentView)
+		return;
+	
+	[self.bundle loadNibNamed:self.nibName owner:self options:nil];
+	NSAssert(self.contentView, @"If you load a cover window's content view using a NIB, you must set the cover window's .coverView outlet!");
+
+	if ([self.coverDelegate respondsToSelector:@selector(coverWindowDidLoadContentView:)])
+		[self.coverDelegate coverWindowDidLoadContentView:self];
+}
+
+- (void) didReceiveMemoryWarning:(NSNotification*) n;
+{
+	if (self.hidden && self.nibName) {
+		self.contentView = nil;
+		if ([self.coverDelegate respondsToSelector:@selector(coverWindowDidUnloadContentView:)])
+			[self.coverDelegate coverWindowDidUnloadContentView:self];
 	}
 }
 
@@ -106,6 +156,14 @@
 	return c;
 }
 
+- (void) showAnimation:(NSString*) ani didFinish:(BOOL) finish context:(void*) context;
+{
+	if ([self.coverDelegate respondsToSelector:@selector(coverWindow:didAppearWithFinalContentViewFrame:)]) {
+		CGRect r = self.contentView.frame;
+		[self.coverDelegate coverWindow:self didAppearWithFinalContentViewFrame:UIEdgeInsetsInsetRect(r, self.contentViewInsets)];
+	}
+}	
+
 - (void) showAnimated:(BOOL) ani;
 {
 	if (ani) {
@@ -121,22 +179,17 @@
 				
 		[self makeKeyAndVisible];
 		
-		[UIView animateWithDuration:0.28 delay:0.0
-							options:UIViewAnimationOptionCurveEaseInOut
-						 animations:^{
-							 
-							 self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
-							 [self.currentChoreography animate];
-							 
-						 }
-						 completion:^(BOOL done) {
-							 
-							 if ([self.coverDelegate respondsToSelector:@selector(coverWindow:didAppearWithFinalContentViewFrame:)]) {
-								 CGRect r = self.contentView.frame;
-								 [self.coverDelegate coverWindow:self didAppearWithFinalContentViewFrame:UIEdgeInsetsInsetRect(r, self.contentViewInsets)];
-							 }
-							 
-						 }];
+		[UIView beginAnimations:nil context:NULL];
+		[UIView setAnimationDuration:0.28];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		
+		self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+		[self.currentChoreography animate];
+
+		[UIView setAnimationDelegate:self];
+		[UIView setAnimationDidStopSelector:@selector(showAnimation:didFinish:context:)];
+		
+		[UIView commitAnimations];
 		
 		
 	} else {
@@ -162,6 +215,15 @@
 	}
 }
 
+- (void) dismissAnimation:(NSString*) ani didFinish:(BOOL) finished context:(void*) context;
+{
+	self.hidden = YES;
+	if ([self.coverDelegate respondsToSelector:@selector(coverWindowDidDismiss:)])
+		[self.coverDelegate coverWindowDidDismiss:self];
+	
+	self.currentChoreography = nil;
+}
+
 - (void) dismissAnimated:(BOOL) ani;
 {
 	if ([self.coverDelegate respondsToSelector:@selector(coverWindowWillDismiss:)])
@@ -169,24 +231,19 @@
 	
 	if (ani) {
 		[self.currentChoreography prepareForReversing];
+
+		[UIView beginAnimations:nil context:NULL];
 		
-		[UIView animateWithDuration:0.28 delay:0.0
-							options:UIViewAnimationOptionCurveEaseInOut
-						 animations:^{
+		[UIView setAnimationDelegate:self];
+		[UIView setAnimationDidStopSelector:@selector(dismissAnimation:didFinish:context:)];
+
+		[UIView setAnimationDuration:0.28];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 							 
-							 self.backgroundColor = [UIColor clearColor];
-							 [self.currentChoreography reverse];
-							 
-						 }
-						 completion:^(BOOL done) {
-							 
-							 self.hidden = YES;
-							 if ([self.coverDelegate respondsToSelector:@selector(coverWindowDidDismiss:)])
-								 [self.coverDelegate coverWindowDidDismiss:self];
-							 
-							 self.currentChoreography = nil;
-							 
-						 }];
+		self.backgroundColor = [UIColor clearColor];
+		[self.currentChoreography reverse];
+		
+		[UIView commitAnimations];
 		
 	} else {
 		self.hidden = YES;
@@ -197,6 +254,11 @@
 		if ([self.coverDelegate respondsToSelector:@selector(coverWindowDidDismiss:)])
 			[self.coverDelegate coverWindowDidDismiss:self];
 	}
+}
+
+- (IBAction) dismiss;
+{
+	[self dismissAnimated:YES];
 }
 
 @end
