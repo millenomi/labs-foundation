@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		1552D96F12B3D57200EA8317 /* ILHostReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 1552D96D12B3D57200EA8317 /* ILHostReachability.h */; };
 		1552D97012B3D57200EA8317 /* ILHostReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1552D96E12B3D57200EA8317 /* ILHostReachability.m */; };
+		158B8AAF12C0BDF1007CB814 /* ILURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AAD12C0BDF1007CB814 /* ILURLConnectionOperation.h */; };
+		158B8AB012C0BDF1007CB814 /* ILURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B8AAE12C0BDF1007CB814 /* ILURLConnectionOperation.m */; };
+		158B8AB512C0BE50007CB814 /* NSDateFormatter-RFC2822.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B8AB312C0BE50007CB814 /* NSDateFormatter-RFC2822.m */; };
+		158B8AB612C0BE50007CB814 /* NSDateFormatter-RFC2822.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */; };
+		158B8ACB12C0BF20007CB814 /* ILInMemoryDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */; };
+		158B8ACC12C0BF20007CB814 /* ILInMemoryDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B8ACA12C0BF20007CB814 /* ILInMemoryDownloadOperation.m */; };
 		15E649801286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497A1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m */; };
 		15E649811286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */; };
 		15E649821286CA0E005975D2 /* NSURL+ILURLParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497C1286CA0E005975D2 /* NSURL+ILURLParsing.m */; };
@@ -22,6 +28,12 @@
 /* Begin PBXFileReference section */
 		1552D96D12B3D57200EA8317 /* ILHostReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILHostReachability.h; sourceTree = "<group>"; };
 		1552D96E12B3D57200EA8317 /* ILHostReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILHostReachability.m; sourceTree = "<group>"; };
+		158B8AAD12C0BDF1007CB814 /* ILURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILURLConnectionOperation.h; sourceTree = "<group>"; };
+		158B8AAE12C0BDF1007CB814 /* ILURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILURLConnectionOperation.m; sourceTree = "<group>"; };
+		158B8AB312C0BE50007CB814 /* NSDateFormatter-RFC2822.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter-RFC2822.m"; sourceTree = "<group>"; };
+		158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter-RFC2822.h"; sourceTree = "<group>"; };
+		158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILInMemoryDownloadOperation.h; sourceTree = "<group>"; };
+		158B8ACA12C0BF20007CB814 /* ILInMemoryDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILInMemoryDownloadOperation.m; sourceTree = "<group>"; };
 		15E6497A1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ILURLResolvingRedirects.m"; sourceTree = "<group>"; };
 		15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ILURLResolvingRedirects.h"; sourceTree = "<group>"; };
 		15E6497C1286CA0E005975D2 /* NSURL+ILURLParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ILURLParsing.m"; sourceTree = "<group>"; };
@@ -75,6 +87,9 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				158B8AC812C0BF0E007CB814 /* URL connection operations */,
+				158B8AB312C0BE50007CB814 /* NSDateFormatter-RFC2822.m */,
+				158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */,
 				1552D96D12B3D57200EA8317 /* ILHostReachability.h */,
 				1552D96E12B3D57200EA8317 /* ILHostReachability.m */,
 				15E6497A1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m */,
@@ -85,6 +100,17 @@
 				15E6497F1286CA0E005975D2 /* NSData+ILIPAddressTools.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		158B8AC812C0BF0E007CB814 /* URL connection operations */ = {
+			isa = PBXGroup;
+			children = (
+				158B8AAD12C0BDF1007CB814 /* ILURLConnectionOperation.h */,
+				158B8AAE12C0BDF1007CB814 /* ILURLConnectionOperation.m */,
+				158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */,
+				158B8ACA12C0BF20007CB814 /* ILInMemoryDownloadOperation.m */,
+			);
+			name = "URL connection operations";
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -107,6 +133,9 @@
 				15E649831286CA0E005975D2 /* NSURL+ILURLParsing.h in Headers */,
 				15E649851286CA0E005975D2 /* NSData+ILIPAddressTools.h in Headers */,
 				1552D96F12B3D57200EA8317 /* ILHostReachability.h in Headers */,
+				158B8AAF12C0BDF1007CB814 /* ILURLConnectionOperation.h in Headers */,
+				158B8AB612C0BE50007CB814 /* NSDateFormatter-RFC2822.h in Headers */,
+				158B8ACB12C0BF20007CB814 /* ILInMemoryDownloadOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +193,9 @@
 				15E649821286CA0E005975D2 /* NSURL+ILURLParsing.m in Sources */,
 				15E649841286CA0E005975D2 /* NSData+ILIPAddressTools.m in Sources */,
 				1552D97012B3D57200EA8317 /* ILHostReachability.m in Sources */,
+				158B8AB012C0BDF1007CB814 /* ILURLConnectionOperation.m in Sources */,
+				158B8AB512C0BE50007CB814 /* NSDateFormatter-RFC2822.m in Sources */,
+				158B8ACC12C0BF20007CB814 /* ILInMemoryDownloadOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

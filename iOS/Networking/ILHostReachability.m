@@ -80,8 +80,14 @@ static void ILHostReachabilityDidChangeNetworkState(SCNetworkReachabilityRef rea
 - (void) updateNetworkWithFlags:(SCNetworkReachabilityFlags) flags;
 {
 	self.reachabilityKnown = YES;
-	self.reachable = (flags && kSCNetworkReachabilityFlagsReachable);
-	self.requiresRoutingOnWWAN = (flags & kSCNetworkReachabilityFlagsIsWWAN);
+	self.reachable = (flags & kSCNetworkReachabilityFlagsReachable);
+	self.requiresRoutingOnWWAN = 
+#if TARGET_OS_IPHONE
+	(flags & kSCNetworkReachabilityFlagsIsWWAN)
+#else
+	NO
+#endif
+	;
 	
 	[self.delegate hostReachabilityDidChange:self];
 	
