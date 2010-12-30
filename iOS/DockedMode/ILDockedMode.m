@@ -38,14 +38,21 @@ static BOOL ILDockedModeHasSwizzledSendEvents = NO;
 @interface ILDockedMode ()
 
 @property(nonatomic, retain) NSTimer* checkTimer;
-@property(nonatomic, getter=isInDockedMode) BOOL inDockedMode;
-
-@property(nonatomic) uint64_t mostCurrentResponseIdentifier;
+@property(nonatomic) BOOL waitingForDelegateToRespond;
 
 @end
 
 
 @implementation ILDockedMode
+
+- (id) init
+{
+	self = [super init];
+	if (self != nil) {
+		self.disablesIdleTimerDuringDockedMode = YES;
+	}
+	return self;
+}
 
 - (void) dealloc
 {
@@ -53,6 +60,17 @@ static BOOL ILDockedModeHasSwizzledSendEvents = NO;
 	[super dealloc];
 }
 
+
+@synthesize disablesIdleTimerDuringDockedMode;
+- (void) setDisablesIdleTimerDuringDockedMode:(BOOL) d;
+{
+	if (d != disablesIdleTimerDuringDockedMode) {
+		disablesIdleTimerDuringDockedMode = d;
+		
+		if (self.inDockedMode)
+			[UIApplication sharedApplication].idleTimerDisabled = YES;
+	}
+}
 
 @synthesize monitoringForDockedMode;
 - (void) setMonitoringForDockedMode:(BOOL) m;
@@ -78,6 +96,11 @@ static BOOL ILDockedModeHasSwizzledSendEvents = NO;
 			[self.checkTimer invalidate];
 			self.checkTimer = nil;
 			
+			if (self.waitingForDelegateToRespond) {
+				[self.delegate dockedModeWillNoLongerBeginAutomatically:self];
+				self.waitingForDelegateToRespond = NO;
+			}
+			
 		}
 	}
 }
@@ -90,12 +113,26 @@ static BOOL ILDockedModeHasSwizzledSendEvents = NO;
 		
 		if (m) {
 			
+			self.waitingForDelegateToRespond = NO;
+			
+			[self.checkTimer invalidate];
+			self.checkTimer = nil;
+			
+			if (self.disablesIdleTimerDuringDockedMode)
+				[UIApplication sharedApplication].idleTimerDisabled = YES;
+			
 			[self.delegate dockedModeDidBegin:self];
 			
 		} else {
 
 			[self.delegate dockedModeDidEnd:self];
+
+			if (self.disablesIdleTimerDuringDockedMode)
+				[UIApplication sharedApplication].idleTimerDisabled = NO;
 			
+			if (self.monitoringForDockedMode && !self.checkTimer)
+				self.checkTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(check:) userInfo:nil repeats:YES];
+						
 		}
 	}
 }
@@ -117,26 +154,22 @@ static BOOL ILDockedModeHasSwizzledSendEvents = NO;
 	
 	if (secondsWithoutEvents > kILDockedModeSecondsBeforePreparing) {
 		
-		uint64_t ident = self.mostCurrentResponseIdentifier;
+		self.waitingForDelegateToRespond = YES;
+		[self.delegate dockedMode:self willBeginAutomaticallyWithin:kILDockedModeSecondsBeforeStarting - secondsWithoutEvents];
 		
-		[self.delegate dockedMode:self shouldBeginWithinTimeout:kILDockedModeSecondsBeforeStarting - secondsWithoutEvents responseBlock:^(BOOL response) {
-			
-			if (self.mostCurrentResponseIdentifier != ident)
-				return;
-			
-			if (response)
-				self.inDockedMode = YES;
-			
-		}];
-		
-	} else {
-		
-		self.mostCurrentResponseIdentifier++;
+	} else if (secondsWithoutEvents > kILDockedModeSecondsBeforeStarting) {
+
+		self.waitingForDelegateToRespond = NO;
 		self.inDockedMode = YES;
+		
+	} else if (self.waitingForDelegateToRespond) {
+				
+		[self.delegate dockedModeWillNoLongerBeginAutomatically:self];
+		self.waitingForDelegateToRespond = NO;
 		
 	}
 }
 
-@synthesize checkTimer, mostCurrentResponseIdentifier;
+@synthesize checkTimer, waitingForDelegateToRespond;
 
 @end
