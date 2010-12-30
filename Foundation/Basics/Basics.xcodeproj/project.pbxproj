@@ -11,6 +11,15 @@
 		150F249312CD00AD00389F22 /* ILErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 150F249112CD00AD00389F22 /* ILErrorHandling.m */; };
 		150F24D412CD04C300389F22 /* ILUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 150F24D212CD04C300389F22 /* ILUUID.m */; };
 		150F24D512CD04C300389F22 /* ILUUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 150F24D312CD04C300389F22 /* ILUUID.h */; };
+		150F24EA12CD065300389F22 /* ILSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = 150F24E812CD065300389F22 /* ILSwizzling.h */; };
+		150F24EB12CD065300389F22 /* ILSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 150F24E912CD065300389F22 /* ILSwizzling.m */; };
+		150F251712CD08A900389F22 /* ILUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 150F24D212CD04C300389F22 /* ILUUID.m */; };
+		150F251812CD08A900389F22 /* ILErrorHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 150F249112CD00AD00389F22 /* ILErrorHandling.m */; };
+		150F251912CD08A900389F22 /* ILSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 150F24E912CD065300389F22 /* ILSwizzling.m */; };
+		150F251A12CD08B400389F22 /* ILUUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 150F24D312CD04C300389F22 /* ILUUID.h */; };
+		150F251B12CD08B400389F22 /* ILErrorHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = 150F249012CD00AD00389F22 /* ILErrorHandling.h */; };
+		150F251C12CD08B400389F22 /* ILSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = 150F24E812CD065300389F22 /* ILSwizzling.h */; };
+		150F251E12CD08C200389F22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150F251D12CD08C200389F22 /* Foundation.framework */; };
 		D2AAC088055469A000DB518D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,12 +31,24 @@
 		150F249112CD00AD00389F22 /* ILErrorHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILErrorHandling.m; sourceTree = "<group>"; };
 		150F24D212CD04C300389F22 /* ILUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILUUID.m; sourceTree = "<group>"; };
 		150F24D312CD04C300389F22 /* ILUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILUUID.h; sourceTree = "<group>"; };
+		150F24E812CD065300389F22 /* ILSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSwizzling.h; sourceTree = "<group>"; };
+		150F24E912CD065300389F22 /* ILSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSwizzling.m; sourceTree = "<group>"; };
+		150F250512CD082300389F22 /* libBasics-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBasics-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		150F251D12CD08C200389F22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32DBCF5E0370ADEE00C91783 /* Basics_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Basics_Prefix.pch; sourceTree = "<group>"; };
-		D2AAC07E0554694100DB518D /* libBasics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBasics.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2AAC07E0554694100DB518D /* libBasics-Mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBasics-Mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E8BE07B2D77200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		150F250312CD082300389F22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				150F251E12CD08C200389F22 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07C0554694100DB518D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,7 +63,8 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libBasics.a */,
+				D2AAC07E0554694100DB518D /* libBasics-Mac.a */,
+				150F250512CD082300389F22 /* libBasics-iOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,6 +76,7 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
+				150F251D12CD08C200389F22 /* Foundation.framework */,
 			);
 			name = Basics;
 			sourceTree = "<group>";
@@ -70,10 +93,12 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				150F24D212CD04C300389F22 /* ILUUID.m */,
 				150F24D312CD04C300389F22 /* ILUUID.h */,
+				150F24D212CD04C300389F22 /* ILUUID.m */,
 				150F249012CD00AD00389F22 /* ILErrorHandling.h */,
 				150F249112CD00AD00389F22 /* ILErrorHandling.m */,
+				150F24E812CD065300389F22 /* ILSwizzling.h */,
+				150F24E912CD065300389F22 /* ILSwizzling.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -107,21 +132,49 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		150F250112CD082300389F22 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				150F251A12CD08B400389F22 /* ILUUID.h in Headers */,
+				150F251B12CD08B400389F22 /* ILErrorHandling.h in Headers */,
+				150F251C12CD08B400389F22 /* ILSwizzling.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07A0554694100DB518D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				150F249212CD00AD00389F22 /* ILErrorHandling.h in Headers */,
 				150F24D512CD04C300389F22 /* ILUUID.h in Headers */,
+				150F24EA12CD065300389F22 /* ILSwizzling.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2AAC07D0554694100DB518D /* Basics */ = {
+		150F250412CD082300389F22 /* Basics (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Basics" */;
+			buildConfigurationList = 150F251F12CD08C300389F22 /* Build configuration list for PBXNativeTarget "Basics (iOS)" */;
+			buildPhases = (
+				150F250112CD082300389F22 /* Headers */,
+				150F250212CD082300389F22 /* Sources */,
+				150F250312CD082300389F22 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Basics (iOS)";
+			productName = "Basics (iOS)";
+			productReference = 150F250512CD082300389F22 /* libBasics-iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D2AAC07D0554694100DB518D /* Basics (Mac) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Basics (Mac)" */;
 			buildPhases = (
 				D2AAC07A0554694100DB518D /* Headers */,
 				D2AAC07B0554694100DB518D /* Sources */,
@@ -131,9 +184,9 @@
 			);
 			dependencies = (
 			);
-			name = Basics;
+			name = "Basics (Mac)";
 			productName = Basics;
-			productReference = D2AAC07E0554694100DB518D /* libBasics.a */;
+			productReference = D2AAC07E0554694100DB518D /* libBasics-Mac.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -156,24 +209,67 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* Basics */,
+				D2AAC07D0554694100DB518D /* Basics (Mac) */,
+				150F250412CD082300389F22 /* Basics (iOS) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		150F250212CD082300389F22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				150F251712CD08A900389F22 /* ILUUID.m in Sources */,
+				150F251812CD08A900389F22 /* ILErrorHandling.m in Sources */,
+				150F251912CD08A900389F22 /* ILSwizzling.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07B0554694100DB518D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				150F249312CD00AD00389F22 /* ILErrorHandling.m in Sources */,
 				150F24D412CD04C300389F22 /* ILUUID.m in Sources */,
+				150F24EB12CD065300389F22 /* ILSwizzling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		150F250612CD082300389F22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(VALID_ARCHS)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = "Basics-iOS";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		150F250712CD082300389F22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(VALID_ARCHS)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = "Basics-iOS";
+				SDKROOT = iphoneos;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1DEB921F08733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -188,7 +284,8 @@
 				GCC_PREFIX_HEADER = Basics_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = Basics;
+				PRODUCT_NAME = "Basics-Mac";
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -202,7 +299,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Basics_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
-				PRODUCT_NAME = Basics;
+				PRODUCT_NAME = "Basics-Mac";
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
@@ -235,7 +333,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Basics" */ = {
+		150F251F12CD08C300389F22 /* Build configuration list for PBXNativeTarget "Basics (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				150F250612CD082300389F22 /* Debug */,
+				150F250712CD082300389F22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Basics (Mac)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,
