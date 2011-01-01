@@ -16,7 +16,7 @@
 
 @interface ILTCPServer ()
 
-@property(retain) id socket;
+@property(nonatomic, retain) id socket;
 @property(nonatomic) uint16_t port;
 
 - (BOOL) acceptConnectionWithNativeSocketHandle:(CFSocketNativeHandle) handle;
