@@ -15,6 +15,9 @@
 		158B8AB612C0BE50007CB814 /* NSDateFormatter-RFC2822.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */; };
 		158B8ACB12C0BF20007CB814 /* ILInMemoryDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */; };
 		158B8ACC12C0BF20007CB814 /* ILInMemoryDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B8ACA12C0BF20007CB814 /* ILInMemoryDownloadOperation.m */; };
+		15B9F23912CF30410069A01C /* ILTCPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 15B9F23712CF30410069A01C /* ILTCPServer.h */; };
+		15B9F23A12CF30410069A01C /* ILTCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B9F23812CF30410069A01C /* ILTCPServer.m */; };
+		15B9F23C12CF30F30069A01C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B9F23B12CF30F30069A01C /* CFNetwork.framework */; };
 		15E649801286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497A1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m */; };
 		15E649811286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */; };
 		15E649821286CA0E005975D2 /* NSURL+ILURLParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497C1286CA0E005975D2 /* NSURL+ILURLParsing.m */; };
@@ -34,6 +37,9 @@
 		158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter-RFC2822.h"; sourceTree = "<group>"; };
 		158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILInMemoryDownloadOperation.h; sourceTree = "<group>"; };
 		158B8ACA12C0BF20007CB814 /* ILInMemoryDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILInMemoryDownloadOperation.m; sourceTree = "<group>"; };
+		15B9F23712CF30410069A01C /* ILTCPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILTCPServer.h; sourceTree = "<group>"; };
+		15B9F23812CF30410069A01C /* ILTCPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILTCPServer.m; sourceTree = "<group>"; };
+		15B9F23B12CF30F30069A01C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		15E6497A1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ILURLResolvingRedirects.m"; sourceTree = "<group>"; };
 		15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ILURLResolvingRedirects.h"; sourceTree = "<group>"; };
 		15E6497C1286CA0E005975D2 /* NSURL+ILURLParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ILURLParsing.m"; sourceTree = "<group>"; };
@@ -51,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				15B9F23C12CF30F30069A01C /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +86,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				15B9F23B12CF30F30069A01C /* CFNetwork.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -98,6 +106,8 @@
 				15E6497D1286CA0E005975D2 /* NSURL+ILURLParsing.h */,
 				15E6497E1286CA0E005975D2 /* NSData+ILIPAddressTools.m */,
 				15E6497F1286CA0E005975D2 /* NSData+ILIPAddressTools.h */,
+				15B9F23712CF30410069A01C /* ILTCPServer.h */,
+				15B9F23812CF30410069A01C /* ILTCPServer.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -136,6 +146,7 @@
 				158B8AAF12C0BDF1007CB814 /* ILURLConnectionOperation.h in Headers */,
 				158B8AB612C0BE50007CB814 /* NSDateFormatter-RFC2822.h in Headers */,
 				158B8ACB12C0BF20007CB814 /* ILInMemoryDownloadOperation.h in Headers */,
+				15B9F23912CF30410069A01C /* ILTCPServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +207,7 @@
 				158B8AB012C0BDF1007CB814 /* ILURLConnectionOperation.m in Sources */,
 				158B8AB512C0BE50007CB814 /* NSDateFormatter-RFC2822.m in Sources */,
 				158B8ACC12C0BF20007CB814 /* ILInMemoryDownloadOperation.m in Sources */,
+				15B9F23A12CF30410069A01C /* ILTCPServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
