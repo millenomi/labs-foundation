@@ -20,6 +20,10 @@
 		150F251B12CD08B400389F22 /* ILErrorHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = 150F249012CD00AD00389F22 /* ILErrorHandling.h */; };
 		150F251C12CD08B400389F22 /* ILSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = 150F24E812CD065300389F22 /* ILSwizzling.h */; };
 		150F251E12CD08C200389F22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150F251D12CD08C200389F22 /* Foundation.framework */; };
+		15F9E77212CFA858005A93FD /* ILSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9E77012CFA857005A93FD /* ILSchema.m */; };
+		15F9E77312CFA858005A93FD /* ILSchema.h in Headers */ = {isa = PBXBuildFile; fileRef = 15F9E77112CFA858005A93FD /* ILSchema.h */; };
+		15F9E77412CFA858005A93FD /* ILSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9E77012CFA857005A93FD /* ILSchema.m */; };
+		15F9E77512CFA858005A93FD /* ILSchema.h in Headers */ = {isa = PBXBuildFile; fileRef = 15F9E77112CFA858005A93FD /* ILSchema.h */; };
 		D2AAC088055469A000DB518D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +39,8 @@
 		150F24E912CD065300389F22 /* ILSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSwizzling.m; sourceTree = "<group>"; };
 		150F250512CD082300389F22 /* libBasics-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBasics-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		150F251D12CD08C200389F22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		15F9E77012CFA857005A93FD /* ILSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSchema.m; sourceTree = "<group>"; };
+		15F9E77112CFA858005A93FD /* ILSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSchema.h; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Basics_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Basics_Prefix.pch; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libBasics-Mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBasics-Mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E8BE07B2D77200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -93,6 +99,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				15F9E77112CFA858005A93FD /* ILSchema.h */,
+				15F9E77012CFA857005A93FD /* ILSchema.m */,
 				150F24D312CD04C300389F22 /* ILUUID.h */,
 				150F24D212CD04C300389F22 /* ILUUID.m */,
 				150F249012CD00AD00389F22 /* ILErrorHandling.h */,
@@ -139,6 +147,7 @@
 				150F251A12CD08B400389F22 /* ILUUID.h in Headers */,
 				150F251B12CD08B400389F22 /* ILErrorHandling.h in Headers */,
 				150F251C12CD08B400389F22 /* ILSwizzling.h in Headers */,
+				15F9E77512CFA858005A93FD /* ILSchema.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +158,7 @@
 				150F249212CD00AD00389F22 /* ILErrorHandling.h in Headers */,
 				150F24D512CD04C300389F22 /* ILUUID.h in Headers */,
 				150F24EA12CD065300389F22 /* ILSwizzling.h in Headers */,
+				15F9E77312CFA858005A93FD /* ILSchema.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +233,7 @@
 				150F251712CD08A900389F22 /* ILUUID.m in Sources */,
 				150F251812CD08A900389F22 /* ILErrorHandling.m in Sources */,
 				150F251912CD08A900389F22 /* ILSwizzling.m in Sources */,
+				15F9E77412CFA858005A93FD /* ILSchema.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +244,7 @@
 				150F249312CD00AD00389F22 /* ILErrorHandling.m in Sources */,
 				150F24D412CD04C300389F22 /* ILUUID.m in Sources */,
 				150F24EB12CD065300389F22 /* ILSwizzling.m in Sources */,
+				15F9E77212CFA858005A93FD /* ILSchema.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
