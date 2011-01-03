@@ -8,7 +8,6 @@
 
 #import "ILSchema.h"
 #import <objc/runtime.h>
-#import "SJEndpoint.h"
 
 CF_INLINE NSString* SJStringByUppercasingFirstLetter(NSString* x) {
 	return [[[x substringToIndex:1] uppercaseString] stringByAppendingString:[x substringFromIndex:1]];
