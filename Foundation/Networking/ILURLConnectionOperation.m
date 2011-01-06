@@ -11,7 +11,8 @@
 
 @interface ILURLConnectionOperation ()
 @property(nonatomic, retain) NSURLConnection* connection;
-@property(retain) NSError* error;
+@property(nonatomic, retain) NSError* error;
+@property(nonatomic, copy) NSURLResponse* response;
 
 #if __BLOCKS__
 @property(nonatomic, copy) void (^privateCompletionBlock)(void);
@@ -97,12 +98,16 @@ static BOOL ILURLConnectionHasBlocksSupport() {
     [self endWithError:e];
 }
 
-- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
+@synthesize response;
+
+- (void) connection:(NSURLConnection*) connection didReceiveResponse:(NSURLResponse*) resp;
 {
-	if (![response isKindOfClass:[NSHTTPURLResponse class]])
+	self.response = resp;
+	
+	if (![resp isKindOfClass:[NSHTTPURLResponse class]])
 		return;
 	
-	NSHTTPURLResponse* r = (NSHTTPURLResponse*) response;
+	NSHTTPURLResponse* r = (NSHTTPURLResponse*) resp;
 	
 	if ([r statusCode] == 304 /* Not Modified */)
 		resourceUnchanged = YES;

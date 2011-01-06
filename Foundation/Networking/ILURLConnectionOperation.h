@@ -20,6 +20,8 @@
 	NSDate* lastAccessDate;
 	NSString* etag;
 	
+	NSURLResponse* response;
+	
 #if __BLOCKS__
 	void (^privateCompletionBlock)(void);
 #endif
@@ -31,7 +33,10 @@
 
 // valid only after completion.
 // if nil, no error occurred.
-@property(readonly, retain) NSError* error;
+@property(readonly, nonatomic, retain) NSError* error;
+
+// valid only after completion.
+@property(readonly, nonatomic, copy) NSURLResponse* response;
 
 // callable by subclasses
 - (void) endWithError:(NSError*) e;
@@ -39,6 +44,11 @@
 // overridable by subclasses
 - (void) willBeginOperation;
 - (void) willEndOperation;
+
+// subclasses must call [super ...] for these methods if overridden:
+- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *) e;
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
 
 @end
 
