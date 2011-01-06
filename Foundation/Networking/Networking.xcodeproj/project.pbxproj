@@ -6,6 +6,21 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		15B40F3712D6586E008BB339 /* Networking (All platforms) */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 15B40F4212D658EA008BB339 /* Build configuration list for PBXAggregateTarget "Networking (All platforms)" */;
+			buildPhases = (
+			);
+			dependencies = (
+				15B40F3B12D65870008BB339 /* PBXTargetDependency */,
+				15B40F3D12D65870008BB339 /* PBXTargetDependency */,
+			);
+			name = "Networking (All platforms)";
+			productName = "Networking (All platforms)";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1552D96F12B3D57200EA8317 /* ILHostReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 1552D96D12B3D57200EA8317 /* ILHostReachability.h */; };
 		1552D97012B3D57200EA8317 /* ILHostReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1552D96E12B3D57200EA8317 /* ILHostReachability.m */; };
@@ -15,6 +30,25 @@
 		158B8AB612C0BE50007CB814 /* NSDateFormatter-RFC2822.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */; };
 		158B8ACB12C0BF20007CB814 /* ILInMemoryDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */; };
 		158B8ACC12C0BF20007CB814 /* ILInMemoryDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B8ACA12C0BF20007CB814 /* ILInMemoryDownloadOperation.m */; };
+		15B40F1E12D6585C008BB339 /* Networking_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Networking_Prefix.pch */; };
+		15B40F1F12D6585C008BB339 /* NSURL+ILURLResolvingRedirects.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */; };
+		15B40F2012D6585C008BB339 /* NSURL+ILURLParsing.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497D1286CA0E005975D2 /* NSURL+ILURLParsing.h */; };
+		15B40F2112D6585C008BB339 /* NSData+ILIPAddressTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497F1286CA0E005975D2 /* NSData+ILIPAddressTools.h */; };
+		15B40F2212D6585C008BB339 /* ILHostReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 1552D96D12B3D57200EA8317 /* ILHostReachability.h */; };
+		15B40F2312D6585C008BB339 /* ILURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AAD12C0BDF1007CB814 /* ILURLConnectionOperation.h */; };
+		15B40F2412D6585C008BB339 /* NSDateFormatter-RFC2822.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */; };
+		15B40F2512D6585C008BB339 /* ILInMemoryDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */; };
+		15B40F2612D6585C008BB339 /* ILTCPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 15B9F23712CF30410069A01C /* ILTCPServer.h */; };
+		15B40F2812D6585C008BB339 /* NSURL+ILURLResolvingRedirects.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497A1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m */; };
+		15B40F2912D6585C008BB339 /* NSURL+ILURLParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497C1286CA0E005975D2 /* NSURL+ILURLParsing.m */; };
+		15B40F2A12D6585C008BB339 /* NSData+ILIPAddressTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497E1286CA0E005975D2 /* NSData+ILIPAddressTools.m */; };
+		15B40F2B12D6585C008BB339 /* ILHostReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1552D96E12B3D57200EA8317 /* ILHostReachability.m */; };
+		15B40F2C12D6585C008BB339 /* ILURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B8AAE12C0BDF1007CB814 /* ILURLConnectionOperation.m */; };
+		15B40F2D12D6585C008BB339 /* NSDateFormatter-RFC2822.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B8AB312C0BE50007CB814 /* NSDateFormatter-RFC2822.m */; };
+		15B40F2E12D6585C008BB339 /* ILInMemoryDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B8ACA12C0BF20007CB814 /* ILInMemoryDownloadOperation.m */; };
+		15B40F2F12D6585C008BB339 /* ILTCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B9F23812CF30410069A01C /* ILTCPServer.m */; };
+		15B40F3112D6585C008BB339 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		15B40F4D12D6593B008BB339 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B40F4C12D6593B008BB339 /* CoreFoundation.framework */; };
 		15B9F23912CF30410069A01C /* ILTCPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 15B9F23712CF30410069A01C /* ILTCPServer.h */; };
 		15B9F23A12CF30410069A01C /* ILTCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B9F23812CF30410069A01C /* ILTCPServer.m */; };
 		15B9F23C12CF30F30069A01C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B9F23B12CF30F30069A01C /* CFNetwork.framework */; };
@@ -28,6 +62,23 @@
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		15B40F3A12D65870008BB339 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* Networking (iOS) */;
+			remoteInfo = "Networking (iOS)";
+		};
+		15B40F3C12D65870008BB339 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15B40F1C12D6585C008BB339 /* Networking (Mac) */;
+			remoteInfo = "Networking (Mac)";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1552D96D12B3D57200EA8317 /* ILHostReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILHostReachability.h; sourceTree = "<group>"; };
 		1552D96E12B3D57200EA8317 /* ILHostReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILHostReachability.m; sourceTree = "<group>"; };
@@ -37,6 +88,8 @@
 		158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter-RFC2822.h"; sourceTree = "<group>"; };
 		158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILInMemoryDownloadOperation.h; sourceTree = "<group>"; };
 		158B8ACA12C0BF20007CB814 /* ILInMemoryDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILInMemoryDownloadOperation.m; sourceTree = "<group>"; };
+		15B40F3612D6585C008BB339 /* libNetworking-Mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libNetworking-Mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15B40F4C12D6593B008BB339 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		15B9F23712CF30410069A01C /* ILTCPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILTCPServer.h; sourceTree = "<group>"; };
 		15B9F23812CF30410069A01C /* ILTCPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILTCPServer.m; sourceTree = "<group>"; };
 		15B9F23B12CF30F30069A01C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -48,10 +101,19 @@
 		15E6497F1286CA0E005975D2 /* NSData+ILIPAddressTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ILIPAddressTools.h"; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* Networking_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Networking_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D2AAC07E0554694100DB518D /* libNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2AAC07E0554694100DB518D /* libNetworking-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libNetworking-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		15B40F3012D6585C008BB339 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B40F3112D6585C008BB339 /* Foundation.framework in Frameworks */,
+				15B40F4D12D6593B008BB339 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07C0554694100DB518D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,7 +129,8 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libNetworking.a */,
+				D2AAC07E0554694100DB518D /* libNetworking-iOS.a */,
+				15B40F3612D6585C008BB339 /* libNetworking-Mac.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +142,7 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
+				15B40F4C12D6593B008BB339 /* CoreFoundation.framework */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -134,6 +198,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		15B40F1D12D6585C008BB339 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B40F1E12D6585C008BB339 /* Networking_Prefix.pch in Headers */,
+				15B40F1F12D6585C008BB339 /* NSURL+ILURLResolvingRedirects.h in Headers */,
+				15B40F2012D6585C008BB339 /* NSURL+ILURLParsing.h in Headers */,
+				15B40F2112D6585C008BB339 /* NSData+ILIPAddressTools.h in Headers */,
+				15B40F2212D6585C008BB339 /* ILHostReachability.h in Headers */,
+				15B40F2312D6585C008BB339 /* ILURLConnectionOperation.h in Headers */,
+				15B40F2412D6585C008BB339 /* NSDateFormatter-RFC2822.h in Headers */,
+				15B40F2512D6585C008BB339 /* ILInMemoryDownloadOperation.h in Headers */,
+				15B40F2612D6585C008BB339 /* ILTCPServer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07A0554694100DB518D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,9 +233,26 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D2AAC07D0554694100DB518D /* Networking */ = {
+		15B40F1C12D6585C008BB339 /* Networking (Mac) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Networking" */;
+			buildConfigurationList = 15B40F3312D6585C008BB339 /* Build configuration list for PBXNativeTarget "Networking (Mac)" */;
+			buildPhases = (
+				15B40F1D12D6585C008BB339 /* Headers */,
+				15B40F2712D6585C008BB339 /* Sources */,
+				15B40F3012D6585C008BB339 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Networking (Mac)";
+			productName = Networking;
+			productReference = 15B40F3612D6585C008BB339 /* libNetworking-Mac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D2AAC07D0554694100DB518D /* Networking (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Networking (iOS)" */;
 			buildPhases = (
 				D2AAC07A0554694100DB518D /* Headers */,
 				D2AAC07B0554694100DB518D /* Sources */,
@@ -165,9 +262,9 @@
 			);
 			dependencies = (
 			);
-			name = Networking;
+			name = "Networking (iOS)";
 			productName = Networking;
-			productReference = D2AAC07E0554694100DB518D /* libNetworking.a */;
+			productReference = D2AAC07E0554694100DB518D /* libNetworking-iOS.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -190,12 +287,29 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* Networking */,
+				D2AAC07D0554694100DB518D /* Networking (iOS) */,
+				15B40F1C12D6585C008BB339 /* Networking (Mac) */,
+				15B40F3712D6586E008BB339 /* Networking (All platforms) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		15B40F2712D6585C008BB339 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B40F2812D6585C008BB339 /* NSURL+ILURLResolvingRedirects.m in Sources */,
+				15B40F2912D6585C008BB339 /* NSURL+ILURLParsing.m in Sources */,
+				15B40F2A12D6585C008BB339 /* NSData+ILIPAddressTools.m in Sources */,
+				15B40F2B12D6585C008BB339 /* ILHostReachability.m in Sources */,
+				15B40F2C12D6585C008BB339 /* ILURLConnectionOperation.m in Sources */,
+				15B40F2D12D6585C008BB339 /* NSDateFormatter-RFC2822.m in Sources */,
+				15B40F2E12D6585C008BB339 /* ILInMemoryDownloadOperation.m in Sources */,
+				15B40F2F12D6585C008BB339 /* ILTCPServer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07B0554694100DB518D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -213,7 +327,77 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		15B40F3B12D65870008BB339 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* Networking (iOS) */;
+			targetProxy = 15B40F3A12D65870008BB339 /* PBXContainerItemProxy */;
+		};
+		15B40F3D12D65870008BB339 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15B40F1C12D6585C008BB339 /* Networking (Mac) */;
+			targetProxy = 15B40F3C12D65870008BB339 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		15B40F3412D6585C008BB339 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/Networking.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Networking_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PRODUCT_NAME = "Networking-Mac";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		15B40F3512D6585C008BB339 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				DSTROOT = /tmp/Networking.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Networking_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PRODUCT_NAME = "Networking-Mac";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		15B40F3812D6586E008BB339 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Networking (All platforms)";
+			};
+			name = Debug;
+		};
+		15B40F3912D6586E008BB339 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Networking (All platforms)";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1DEB921F08733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -229,7 +413,8 @@
 				GCC_PREFIX_HEADER = Networking_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = Networking;
+				PRODUCT_NAME = "Networking-iOS";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -244,41 +429,56 @@
 				GCC_PREFIX_HEADER = Networking_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = Networking;
+				PRODUCT_NAME = "Networking-iOS";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
 		1DEB922308733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
 		1DEB922408733DC00010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Networking" */ = {
+		15B40F3312D6585C008BB339 /* Build configuration list for PBXNativeTarget "Networking (Mac)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15B40F3412D6585C008BB339 /* Debug */,
+				15B40F3512D6585C008BB339 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15B40F4212D658EA008BB339 /* Build configuration list for PBXAggregateTarget "Networking (All platforms)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15B40F3812D6586E008BB339 /* Debug */,
+				15B40F3912D6586E008BB339 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Networking (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,

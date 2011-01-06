@@ -25,7 +25,12 @@ enum {
 #define kILTCPProtocolFamily @"ILTCPProtocolFamily"
 
 
-@interface ILTCPServer : NSObject {}
+@interface ILTCPServer : NSObject {
+@private
+	id <ILTCPServerDelegate> delegate;
+	id socket;
+	uint16_t port;
+}
 
 @property(nonatomic, assign) id <ILTCPServerDelegate> delegate;
 @property(nonatomic, readonly) uint16_t port;

@@ -13,7 +13,13 @@
 @protocol ILHostReachabilityDelegate;
 
 @interface ILHostReachability : NSObject {
+@private
 	SCNetworkReachabilityRef reach;
+	id <ILHostReachabilityDelegate> delegate;
+	
+	BOOL reachabilityKnown;
+	BOOL reachable;
+	BOOL requiresRoutingOnWWAN;
 }
 
 - (id) initWithHostAddressString:(NSString*) host;

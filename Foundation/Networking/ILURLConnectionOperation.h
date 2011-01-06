@@ -12,6 +12,17 @@
 @interface ILURLConnectionOperation : NSOperation /* <NSURLConnectionDelegate> */ {
 @private
     BOOL finished, resourceUnchanged;
+	
+	NSURLRequest* request;
+	NSError* error;
+	NSURLConnection* connection;
+	
+	NSDate* lastAccessDate;
+	NSString* etag;
+	
+#if __BLOCKS__
+	void (^privateCompletionBlock)(void);
+#endif
 }
 
 - (id) initWithRequest:(NSURLRequest*) rq;

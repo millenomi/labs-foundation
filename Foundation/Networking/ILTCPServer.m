@@ -9,7 +9,12 @@
 #import "ILTCPServer.h"
 #import "NSData+ILIPAddressTools.h"
 
+#if TARGET_OS_IPHONE
 #import <CFNetwork/CFNetwork.h>
+#else
+#import <CoreFoundation/CoreFoundation.h>
+#endif
+
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <unistd.h>

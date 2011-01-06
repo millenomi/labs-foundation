@@ -21,7 +21,11 @@
 
 static BOOL ILURLConnectionHasBlocksSupport() {
 #if __BLOCKS__
-	return NSFoundationVersionNumber >= NSFoundationVersionNumber10_6;
+	#if TARGET_OS_IPHONE
+		return NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_4_0
+	#else
+		return NSFoundationVersionNumber >= NSFoundationVersionNumber10_6;
+	#endif
 #else
 	return NO;
 #endif
@@ -88,9 +92,9 @@ static BOOL ILURLConnectionHasBlocksSupport() {
     [self endWithError:nil];
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *) e;
 {
-    [self endWithError:error];
+    [self endWithError:e];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;

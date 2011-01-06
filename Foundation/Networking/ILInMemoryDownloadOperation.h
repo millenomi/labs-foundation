@@ -15,7 +15,9 @@ enum {
 };
 
 @interface ILInMemoryDownloadOperation : ILURLConnectionOperation {
+@private
 	NSMutableData* mutableDownloadedData;
+	size_t maximumResourceSize;
 }
 
 @property(nonatomic) size_t maximumResourceSize; // 0 means no limit
