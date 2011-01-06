@@ -22,7 +22,7 @@
 static BOOL ILURLConnectionHasBlocksSupport() {
 #if __BLOCKS__
 	#if TARGET_OS_IPHONE
-		return NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_4_0
+		return NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_4_0;
 	#else
 		return NSFoundationVersionNumber >= NSFoundationVersionNumber10_6;
 	#endif
