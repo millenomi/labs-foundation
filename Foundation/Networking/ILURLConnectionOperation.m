@@ -99,6 +99,11 @@ static BOOL ILURLConnectionHasBlocksSupport() {
 }
 
 @synthesize response;
+- (NSHTTPURLResponse *) HTTPResponse;
+{
+	id x = self.response;
+	return [x isKindOfClass:[NSHTTPURLResponse class]]? x : nil;
+}
 
 - (void) connection:(NSURLConnection*) connection didReceiveResponse:(NSURLResponse*) resp;
 {

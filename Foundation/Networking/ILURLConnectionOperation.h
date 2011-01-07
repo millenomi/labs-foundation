@@ -38,6 +38,9 @@
 // valid only after completion.
 @property(readonly, nonatomic, copy) NSURLResponse* response;
 
+// convenience for casting to NSHTTPURLResponse* (common!)
+@property(readonly, nonatomic) NSHTTPURLResponse* HTTPResponse;
+
 // callable by subclasses
 - (void) endWithError:(NSError*) e;
 
