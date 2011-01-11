@@ -79,6 +79,7 @@
 @interface ILURLConnectionOperation ()
 
 #if __BLOCKS__
+- (void(^)(void)) URLConnectionCompletionBlock;
 - (void) setURLConnectionCompletionBlock:(void(^)(void)) block;
 #endif
 

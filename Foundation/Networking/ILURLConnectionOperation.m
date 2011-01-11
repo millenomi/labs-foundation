@@ -162,6 +162,14 @@ static BOOL ILURLConnectionHasBlocksSupport() {
 #if __BLOCKS__
 @synthesize privateCompletionBlock;
 
+- (void(^)(void)) URLConnectionCompletionBlock;
+{
+	if (ILURLConnectionHasBlocksSupport())
+		return [self completionBlock];
+	else
+		return self.privateCompletionBlock;
+}
+
 - (void) setURLConnectionCompletionBlock:(void(^)(void)) block;
 {
 	if (ILURLConnectionHasBlocksSupport())
