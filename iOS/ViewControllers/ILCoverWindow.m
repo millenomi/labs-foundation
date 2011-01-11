@@ -25,6 +25,44 @@
 @end
 
 
+CF_INLINE void ILCoverWindowGetBoundsAndTransformForOrientation(UIInterfaceOrientation o, CGRect* bounds, CGAffineTransform* transform) {
+	
+	if (bounds) {
+		
+		CGRect screenFrame = [[UIScreen mainScreen] bounds];
+		
+		if (UIInterfaceOrientationIsLandscape(o))
+			screenFrame.size = CGSizeMake(screenFrame.size.height, screenFrame.size.width);
+		
+		*bounds = screenFrame;
+		
+	}
+	
+	if (transform) {
+		
+		switch (o) {
+			case UIInterfaceOrientationLandscapeLeft:
+				*transform = CGAffineTransformMakeRotation(-M_PI_2);
+				break;
+			
+			case UIInterfaceOrientationLandscapeRight:
+				*transform = CGAffineTransformMakeRotation(M_PI_2);
+				break;
+			
+			case UIInterfaceOrientationPortraitUpsideDown:
+				*transform = CGAffineTransformMakeRotation(M_PI);	
+				break;
+				
+			case UIInterfaceOrientationPortrait:
+			default:
+				*transform = CGAffineTransformIdentity;
+				break;
+		}
+		
+	}
+	
+}
+
 @implementation ILCoverWindow
 
 - (id) init;
@@ -42,7 +80,7 @@
 	return self;
 }
 
-- (id) initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle;
+- (id) initWithNibName:(NSString*) nibName bundle:(NSBundle*) bundle;
 {
 	if ((self = [super init])) {
 		
@@ -73,7 +111,11 @@
 	
 	if ([self respondsToSelector:@selector(screen)])
 	self.screen = [UIScreen mainScreen];
-	self.frame = [[UIScreen mainScreen] bounds];
+	
+	CGRect frame; CGAffineTransform transform;
+	ILCoverWindowGetBoundsAndTransformForOrientation(UIInterfaceOrientationPortrait, &frame, &transform);
+	self.frame = frame;
+	self.transform = transform;
 	
 	self.coverDelegate = self;
 }
@@ -169,6 +211,9 @@
 
 - (void) showAnimated:(BOOL) ani;
 {
+	if (self.rotateWithStatusBarOrientation)
+		self.orientation = [[UIApplication sharedApplication] statusBarOrientation];
+	
 	if (ani) {
 		
 		self.currentChoreography = [self choreography];
@@ -262,6 +307,27 @@
 - (IBAction) dismiss;
 {
 	[self dismissAnimated:YES];
+}
+
+#pragma mark Orientation
+
+@synthesize rotateWithStatusBarOrientation;
+
+@synthesize orientation;
+- (void) setOrientation:(UIInterfaceOrientation) o;
+{
+	if (o != orientation) {
+		orientation = o;
+		
+		CGRect f; CGAffineTransform t;
+		ILCoverWindowGetBoundsAndTransformForOrientation(o, &f, &t);
+		
+		self.transform = CGAffineTransformIdentity;
+		self.bounds = f;
+		
+		self.center = CGPointMake(CGRectGetMidX([self.screen bounds]), CGRectGetMidY([self.screen bounds]));
+		self.transform = t;
+	}
 }
 
 @end

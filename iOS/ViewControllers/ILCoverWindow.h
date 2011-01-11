@@ -21,15 +21,18 @@
 - (void) showAnimated:(BOOL) ani;
 - (void) dismissAnimated:(BOOL) ani;
 
-@property(assign) id <ILCoverWindowDelegate> coverDelegate;
+@property(assign, nonatomic) id <ILCoverWindowDelegate> coverDelegate;
 
 @property UIEdgeInsets contentViewInsets;
 
-@property(retain) IBOutlet UIView* contentView;
+@property(retain, nonatomic) IBOutlet UIView* contentView;
 
 - (IBAction) dismiss; // dismissAnimated:YES
 
 - (void) loadNIBIfNeeded;
+
+@property(nonatomic) BOOL rotateWithStatusBarOrientation;
+@property(nonatomic) UIInterfaceOrientation orientation;
 
 @end
 
