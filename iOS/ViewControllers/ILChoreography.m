@@ -22,7 +22,6 @@
 - (void) dealloc
 {
 	[mutableViews release];
-	self.views = nil;
 	[super dealloc];
 }
 
