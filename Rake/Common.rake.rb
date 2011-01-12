@@ -1,7 +1,7 @@
 
 module ILabs
 	module Rake
-		def self.common_tasks(*namespaces)
+		def common_tasks(*namespaces)
 			desc "Builds namespaces: #{namespaces.join ', '}"
 			task :build
 
@@ -18,7 +18,25 @@ module ILabs
 			end
 		end
 		
-		def self.xcode(path, options = {})
+		def android(path)
+			desc "Builds Android project at #{path}"
+			task :build do
+				cd path
+				sh 'ant', 'compile'
+			end
+			
+			task :clean do
+				cd path
+				sh 'ant', 'clean'
+			end
+			
+			task :clobber do
+				cd path
+				sh 'ant', 'clean'
+			end
+		end
+		
+		def xcode(path, options = {})
 			project_path = path
 			if path.end_with? '.xcodeproj'
 				project_name = File.basename(project_path)
@@ -63,7 +81,7 @@ module ILabs
 				invocation = args.dup
 				invocation << 'build'
 		
-				sh *invocation
+				sh(*invocation)
 			end
 	
 			desc "Cleans Xcode project at #{project_path}"
@@ -73,7 +91,7 @@ module ILabs
 				invocation = args.dup
 				invocation << 'clean'
 		
-				sh *invocation		
+				sh(*invocation)
 			end
 			
 			desc "Cleans Xcode project at #{project_path}, then removes the 'build' folder"
@@ -83,7 +101,7 @@ module ILabs
 				invocation = args.dup
 				invocation << 'clean'
 		
-				sh *invocation		
+				sh(*invocation)
 				rm_rf 'build'
 			end
 		end
