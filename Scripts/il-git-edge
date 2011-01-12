@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ "$GIT_DIR" == "" -a ! -d .git ]; then
+	echo "This command must be issued at the root of a non-bare git repository, or have the GIT_DIR set."
+	exit 1
+fi
+
+set -avx
+set -e # Exit if any of the following dies horribly
+git merge master
+git submodule foreach git checkout master
+git submodule foreach git pull origin master
