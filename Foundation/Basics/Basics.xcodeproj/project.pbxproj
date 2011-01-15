@@ -39,6 +39,7 @@
 		150F24E912CD065300389F22 /* ILSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSwizzling.m; sourceTree = "<group>"; };
 		150F250512CD082300389F22 /* libBasics-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBasics-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		150F251D12CD08C200389F22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		154AB5AE12E1F79C00C51BDD /* ILShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILShorthand.h; sourceTree = "<group>"; };
 		15F9E77012CFA857005A93FD /* ILSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILSchema.m; sourceTree = "<group>"; };
 		15F9E77112CFA858005A93FD /* ILSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILSchema.h; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Basics_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Basics_Prefix.pch; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				15F9E77112CFA858005A93FD /* ILSchema.h */,
+				154AB5AE12E1F79C00C51BDD /* ILShorthand.h */,
 				15F9E77012CFA857005A93FD /* ILSchema.m */,
 				150F24D312CD04C300389F22 /* ILUUID.h */,
 				150F24D212CD04C300389F22 /* ILUUID.m */,
