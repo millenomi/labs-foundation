@@ -8,6 +8,13 @@
 
 #import "ILNIBTableViewCell.h"
 
+@interface ILNIBTableViewCell ()
+
++ (UINib*) cachedNibWithName:(NSString*) name bundle:(NSBundle*) bundle;
+
+@end
+
+
 
 @implementation ILNIBTableViewCell
 
