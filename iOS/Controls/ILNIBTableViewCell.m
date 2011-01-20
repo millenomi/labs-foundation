@@ -51,7 +51,7 @@ static NSMutableDictionary* ILNIBTableViewCellCache = nil;
 	
 	UINib* result = [nibsByName objectForKey:name];
 	if (!result) {
-		result = [UINib nibWithNibName:name bundle:bundle];
+		result = [UINibClass nibWithNibName:name bundle:bundle];
 		[nibsByName setObject:result forKey:name];
 	}
 	
