@@ -152,6 +152,20 @@ CF_INLINE void ILCoverWindowGetBoundsAndTransformForOrientation(UIInterfaceOrien
 		
 		contentView = [v retain];
 		[self addSubview:contentView];
+		
+		if (self.debugUseColoredBackgroundForContentView)
+			self.contentView.backgroundColor = [UIColor redColor];		
+	}
+}
+
+@synthesize debugUseColoredBackgroundForContentView;
+- (void) setDebugUseColoredBackgroundForContentView:(BOOL) b;
+{
+	if (debugUseColoredBackgroundForContentView != b) {
+		debugUseColoredBackgroundForContentView = b;
+		
+		if (b)
+			self.contentView.backgroundColor = [UIColor redColor];
 	}
 }
 
