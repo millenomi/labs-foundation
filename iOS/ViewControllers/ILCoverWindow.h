@@ -34,6 +34,8 @@
 @property(nonatomic) BOOL rotateWithStatusBarOrientation;
 @property(nonatomic) UIInterfaceOrientation orientation;
 
+@property(nonatomic) BOOL debugUseColoredBackgroundForContentView; // for debugging
+
 @end
 
 
