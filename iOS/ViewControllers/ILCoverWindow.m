@@ -213,6 +213,8 @@ CF_INLINE void ILCoverWindowGetBoundsAndTransformForOrientation(UIInterfaceOrien
 {
 	if (self.hidden && self.nibName) {
 		self.contentView = nil;
+        self.landscapeContentView = nil;
+        
 		if ([self.coverDelegate respondsToSelector:@selector(coverWindowDidUnloadContentView:)])
 			[self.coverDelegate coverWindowDidUnloadContentView:self];
 	}
