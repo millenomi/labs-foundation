@@ -125,6 +125,7 @@ CF_INLINE void ILCoverWindowGetBoundsAndTransformForOrientation(UIInterfaceOrien
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
 	self.contentView = nil;
+    self.landscapeContentView = nil;
 	if (self.coverDelegate == self && [self respondsToSelector:@selector(coverWindowDidUnloadContentView:)])
 		[self.coverDelegate coverWindowDidUnloadContentView:self];
 	
@@ -136,7 +137,7 @@ CF_INLINE void ILCoverWindowGetBoundsAndTransformForOrientation(UIInterfaceOrien
 
 @synthesize nibName, bundle;
 
-@synthesize contentView;
+@synthesize contentView, landscapeContentView;
 
 - (UIView *) contentView;
 {
@@ -151,12 +152,37 @@ CF_INLINE void ILCoverWindowGetBoundsAndTransformForOrientation(UIInterfaceOrien
 		[contentView release];
 		
 		contentView = [v retain];
-		[self addSubview:contentView];
+        
+        if (contentView)
+            [self addSubview:contentView];
 		
 		if (self.debugUseColoredBackgroundForContentView)
-			self.contentView.backgroundColor = [UIColor redColor];		
+			contentView.backgroundColor = [UIColor redColor];		
 	}
 }
+
+- (UIView *)landscapeContentView;
+{
+    [self loadNIBIfNeeded];
+    return landscapeContentView;
+}
+
+- (void) setLandscapeContentView:(UIView *) v;
+{
+	if (v != landscapeContentView) {
+		[landscapeContentView removeFromSuperview];
+		[landscapeContentView release];
+		
+		landscapeContentView = [v retain];
+        
+        if (landscapeContentView)
+            [self addSubview:landscapeContentView];
+		
+		if (self.debugUseColoredBackgroundForContentView)
+			landscapeContentView.backgroundColor = [UIColor redColor];		
+	}
+}
+
 
 @synthesize debugUseColoredBackgroundForContentView;
 - (void) setDebugUseColoredBackgroundForContentView:(BOOL) b;
@@ -164,8 +190,10 @@ CF_INLINE void ILCoverWindowGetBoundsAndTransformForOrientation(UIInterfaceOrien
 	if (debugUseColoredBackgroundForContentView != b) {
 		debugUseColoredBackgroundForContentView = b;
 		
-		if (b)
+		if (b) {
 			self.contentView.backgroundColor = [UIColor redColor];
+            self.landscapeContentView.backgroundColor = [UIColor redColor];
+        }
 	}
 }
 
@@ -211,7 +239,11 @@ CF_INLINE void ILCoverWindowGetBoundsAndTransformForOrientation(UIInterfaceOrien
 	if (!c)
 		c = [[ILSlideFromBottomChoreography new] autorelease];
 	
-	c.view = self.contentView;
+    if (self.landscapeContentView)
+        c.view = (UIInterfaceOrientationIsLandscape(self.orientation)? self.landscapeContentView : self.contentView);
+    else
+        c.view = self.contentView;
+    
 	return c;
 }
 
@@ -227,6 +259,12 @@ CF_INLINE void ILCoverWindowGetBoundsAndTransformForOrientation(UIInterfaceOrien
 {
 	if (self.rotateWithStatusBarOrientation)
 		self.orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    
+    if (self.landscapeContentView) {
+        self.contentView.hidden = UIInterfaceOrientationIsLandscape(self.orientation);
+        self.landscapeContentView.hidden = UIInterfaceOrientationIsPortrait(self.orientation);
+    } else
+        self.contentView.hidden = NO;
 	
 	if (ani) {
 		

@@ -26,6 +26,7 @@
 @property UIEdgeInsets contentViewInsets;
 
 @property(retain, nonatomic) IBOutlet UIView* contentView;
+@property(retain, nonatomic) IBOutlet UIView* landscapeContentView;
 
 - (IBAction) dismiss; // dismissAnimated:YES
 
