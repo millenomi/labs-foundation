@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="JSON" default="jar">
+	
+	<target name="compile">
+		<mkdir dir="Dependencies" />
+		<mkdir dir="Dependencies/Build" />
+		<mkdir dir="Dependencies/Build/JSONJava.dep" />
+		<javac srcdir="JSONJava.dep" destdir="Dependencies/Build/JSONJava.dep">
+			<include name="*.java" />
+			<exclude name="Test.java" />
+		</javac>
+	</target>
+	
+	<target name="jar" depends="compile">
+		<jar basedir="Dependencies/Build/JSONJava.dep" destfile="Dependencies/JSON.jar" />
+	</target>
+	
+	<target name="clean">
+		<delete dir="Dependencies/Build/JSONJava.dep" />
+		<delete file="Dependencies/JSON.jar" />
+	</target>
+</project>

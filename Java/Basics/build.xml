@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="LabsFoundation_Basics" default="jar">
+	
+	<target name="dependencies">
+		<ant dir="../" antfile="JSONJava.ant" target="jar" />
+	</target>
+	
+	<target name="compile" depends="dependencies">
+		<mkdir dir="Build" />
+		<javac srcdir="Sources" destdir="Build">
+			<include name="**/*.java" />
+			<exclude name="**/test/*" />
+			<classpath>
+				<pathelement location="../Dependencies/JSON.jar" />
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="jar" depends="compile">
+		<jar basedir="Build" destfile="LabsFoundation_Basics.jar" />
+	</target>
+	
+	<target name="clean">
+		<ant dir="../" antfile="JSONJava.ant" target="clean" />
+		<delete dir="Build" />
+	</target>
+</project>
