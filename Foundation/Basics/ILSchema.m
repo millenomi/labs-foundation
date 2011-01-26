@@ -9,6 +9,45 @@
 #import "ILSchema.h"
 #import <objc/runtime.h>
 
+@implementation NSError (ILSchemaErrorDisplay)
+
+- (NSString*) ILSchemaErrorDescription;
+{
+	if (![[self domain] isEqual:kILSchemaErrorDomain])
+		return @"<not a ILSchema error>";
+	
+	NSMutableString* s = [NSMutableString stringWithString:@"(ILSchema error) -- "];
+
+#define ILSchemaErrorCaseFor(constant) \
+	case constant: [s appendString:@#constant]; break;
+	
+	switch ([self code]) {
+		ILSchemaErrorCaseFor(kILSchemaErrorInitValueNotADictionary)
+		ILSchemaErrorCaseFor(kILSchemaErrorValueFailedValidation)
+		ILSchemaErrorCaseFor(kILSchemaErrorRequiredValueMissing)
+		ILSchemaErrorCaseFor(kILSchemaErrorArrayValueFailedValidation)
+		ILSchemaErrorCaseFor(kILSchemaErrorDictionaryValueFailedValidation)
+		ILSchemaErrorCaseFor(kILSchemaErrorNoValidValueForProperty)
+		default:
+			[s appendString:@"(unknown error)"]; break;
+	}
+	
+	NSMutableDictionary* d = [[[self userInfo] mutableCopy] autorelease];
+	[d removeObjectForKey:NSUnderlyingErrorKey];
+	[s appendString:[d description]];	
+	
+//	NSUInteger countOfUnknownKeys = [[self userInfo] count];
+	if ([[self userInfo] objectForKey:NSUnderlyingErrorKey]) {
+		[s appendFormat:@"\nUnderlying error: %@", [[[self userInfo] objectForKey:NSUnderlyingErrorKey] ILSchemaErrorDescription]];
+//		countOfUnknownKeys--;
+	}
+		
+	return s;
+}
+
+@end
+
+
 CF_INLINE NSString* SJStringByUppercasingFirstLetter(NSString* x) {
 	return [[[x substringToIndex:1] uppercaseString] stringByAppendingString:[x substringFromIndex:1]];
 }
@@ -191,7 +230,12 @@ CF_INLINE NSString* SJStringByUppercasingFirstLetter(NSString* x) {
 	if (![cls isSubclassOfClass:[ILSchema class]]) {
 
 		if (![value isKindOfClass:cls]) {
-			NSDictionary* userInfo = [NSDictionary dictionaryWithObject:value forKey:kILSchemaErrorInvalidObjectKey];
+			NSMutableDictionary* userInfo = [NSMutableDictionary dictionaryWithObject:value forKey:kILSchemaErrorInvalidObjectKey];
+			if (value) {
+				[userInfo setObject:[value class] forKey:kILSchemaErrorActualClassKey];
+				[userInfo setObject:cls forKey:kILSchemaErrorExpectedClassKey];
+			}
+			
 			if (e) *e = [NSError errorWithDomain:kILSchemaErrorDomain code:kILSchemaErrorValueFailedValidation userInfo:userInfo];
 			return nil;
 		}
@@ -199,7 +243,12 @@ CF_INLINE NSString* SJStringByUppercasingFirstLetter(NSString* x) {
 		if (arrayValueCls) {
 			
 			if (![value isKindOfClass:[NSArray class]]) {
-				NSDictionary* userInfo = [NSDictionary dictionaryWithObject:value forKey:kILSchemaErrorInvalidObjectKey];
+				NSMutableDictionary* userInfo = [NSMutableDictionary dictionaryWithObject:value forKey:kILSchemaErrorInvalidObjectKey];
+				if (value) {
+					[userInfo setObject:[value class] forKey:kILSchemaErrorActualClassKey];
+					[userInfo setObject:[NSArray class] forKey:kILSchemaErrorExpectedClassKey];
+				}
+				
 				if (e) *e = [NSError errorWithDomain:kILSchemaErrorDomain code:kILSchemaErrorValueFailedValidation userInfo:userInfo];
 				return nil;
 			}
@@ -233,7 +282,12 @@ CF_INLINE NSString* SJStringByUppercasingFirstLetter(NSString* x) {
 		} else if (dictionaryValueCls) {
 			
 			if (![value isKindOfClass:[NSDictionary class]]) {
-				NSDictionary* userInfo = [NSDictionary dictionaryWithObject:value forKey:kILSchemaErrorInvalidObjectKey];
+				NSMutableDictionary* userInfo = [NSMutableDictionary dictionaryWithObject:value forKey:kILSchemaErrorInvalidObjectKey];
+				if (value) {
+					[userInfo setObject:[value class] forKey:kILSchemaErrorActualClassKey];
+					[userInfo setObject:[NSDictionary class] forKey:kILSchemaErrorExpectedClassKey];
+				}
+								
 				if (e) *e = [NSError errorWithDomain:kILSchemaErrorDomain code:kILSchemaErrorValueFailedValidation userInfo:userInfo];
 				return nil;
 			}
@@ -249,7 +303,7 @@ CF_INLINE NSString* SJStringByUppercasingFirstLetter(NSString* x) {
 					if (e) {
 						NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
 												  x, kILSchemaErrorSourceKey,
-												  preV, kILSchemaErrorInvalidObjectKey,
+												  preV ?: [NSNull null], kILSchemaErrorInvalidObjectKey,
 												  e2, NSUnderlyingErrorKey,
 												  nil];
 						*e = [NSError errorWithDomain:kILSchemaErrorDomain code:kILSchemaErrorDictionaryValueFailedValidation userInfo:userInfo];

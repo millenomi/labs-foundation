@@ -18,12 +18,23 @@ enum {
 	kILSchemaErrorValueFailedValidation = 6,
 };
 
+@interface NSError (ILSchemaErrorDisplay)
+
+- (NSString*) ILSchemaErrorDescription;
+
+@end
+
+
 // A specifier that says what part of the object failed validation.
 // For kILSchemaErrorRequiredValueMissing, this is the missing property that couldn't be filled in from the dictionary.
 #define kILSchemaErrorSourceKey @"ILSchemaErrorSource"
 
 // The object that cause validation to fail.
 #define kILSchemaErrorInvalidObjectKey @"ILSchemaErrorInvalidObject"
+
+// The expected and actual classes of the object failing validation
+#define kILSchemaErrorExpectedClassKey @"ILSchemaErrorExpectedClassKey"
+#define kILSchemaErrorActualClassKey @"ILSchemaErrorActualClassKey"
 
 @interface ILSchema : NSObject <NSCopying> {
 	NSDictionary* values;
