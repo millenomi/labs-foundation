@@ -124,61 +124,89 @@ public class Schema {
 				continue;
 			}
 			
-			Object x = o.opt(fieldName); // we know it will never return null.
+			Object examinedObject = o.opt(fieldName); // we know it will never return null.
 			
 			if (expectedType == Map.class) {
 				
-				if (!(x instanceof JSONObject))
-					throw new ValidationException("Key " + fieldName + " has a value " + x + " of invalid value (expected a JSON object (map).)");
+				if (!(examinedObject instanceof JSONObject))
+					throw new ValidationException("Key " + fieldName + " has a value " + examinedObject + " of invalid value (expected a JSON object (map).)");
 				
-				JSONObject xJSON = (JSONObject) x;
-				Iterator<String> i = xJSON.keys();
+				JSONObject examinedJSONObject = (JSONObject) examinedObject;
+				Iterator<String> i = examinedJSONObject.keys();
 				
 				Contains containsNote = m.getAnnotation(Contains.class);
 				
-				HashMap<String, Object> finalMap = new HashMap<String, Object>();
+				HashMap<String, Object> submap = new HashMap<String, Object>();
 				while (i.hasNext()) {
-					String s = (String) i.next();
-					Object y = xJSON.opt(s); // we know it will never return null.
+					String submapKey = (String) i.next();
+					Object submapValue = examinedJSONObject.opt(submapKey); // we know it will never return null.
 					
-					if (containsNote != null) {
-						if (!isObjectOfExpectedType(y, containsNote.value()))
-							throw new ValidationException("Map of key " + fieldName + " contains a value " + x + " which is not of the @Contains-mandated type " + containsNote.value());
+					boolean isPayload = containsNote.value().isInterface();
+					if (isPayload) {
+						try {
+							submap.put(submapKey, Schema.make(submapValue, containsNote.value()));
+						} catch (ValidationException e) {
+							throw new ValidationException("Array of key " + fieldName + " contains a value that does not validate as a payload required by @Contents " + containsNote.value(), e);
+						}
+						
+					} else if (containsNote != null) {
+						if (!isObjectOfExpectedType(submapValue, containsNote.value()))
+							throw new ValidationException("Map of key " + fieldName + " contains a value " + examinedObject + " which is not of the @Contains-mandated type " + containsNote.value());
+
+						submap.put(submapKey, submapValue); 
 					}
 					
-					finalMap.put(s, y); 
 				}
 				
-				values.put(fieldName, finalMap);
+				values.put(fieldName, submap);
 				
 			} else if (expectedType == List.class) {
 				
-				if (!(x instanceof JSONArray))
-					throw new ValidationException("Key " + fieldName + " has a value " + x + " of invalid value (expected a JSON array.)");
+				if (!(examinedObject instanceof JSONArray))
+					throw new ValidationException("Key " + fieldName + " has a value " + examinedObject + " of invalid value (expected a JSON array.)");
 				
-				JSONArray xJSON = (JSONArray) x;
+				JSONArray examinedJSONArray = (JSONArray) examinedObject;
 				
 				Contains containsNote = m.getAnnotation(Contains.class);
 				
-				ArrayList<Object> finalList = new ArrayList<Object>();
-				for (int i = 0; i < xJSON.length(); i++) {
-					Object y = xJSON.opt(i); // we know it will never return null.
+				ArrayList<Object> sublist = new ArrayList<Object>();
+				for (int i = 0; i < examinedJSONArray.length(); i++) {
+					Object sublistValue = examinedJSONArray.opt(i); // we know it will never return null.
 					
 					if (containsNote != null) {
-						if (!isObjectOfExpectedType(y, containsNote.value()))
-							throw new ValidationException("Array of key " + fieldName + " contains a value " + x + " which is not of the @Contains-mandated type " + containsNote.value());
+						boolean isPayload = containsNote.value().isInterface();
+						if (isPayload) {
+							try {
+								sublist.add(Schema.make(sublistValue, containsNote.value()));
+							} catch (ValidationException e) {
+								throw new ValidationException("Array of key " + fieldName + " contains a value that does not validate as a payload required by @Contents " + containsNote.value(), e);
+							}
+							
+						} else {
+							if (!isObjectOfExpectedType(sublistValue, containsNote.value()))
+								throw new ValidationException("Array of key " + fieldName + " contains a value " + examinedObject + " which is not of the @Contains-mandated type " + containsNote.value());
+							
+							sublist.add(sublistValue);							
+						}
 					}
 					
-					finalList.add(y);
 				}
 				
-				values.put(fieldName, finalList);
+				values.put(fieldName, sublist);
+				
+			} else if (expectedType.isInterface()) {
+				
+				try {
+					values.put(fieldName, make(examinedObject, expectedType));
+				} catch (ValidationException e) {
+					throw new ValidationException("Payload of key " + fieldName + " failed validation.", e);
+				}
 				
 			} else {
-				if (!isObjectOfExpectedType(x, expectedType))
-					throw new ValidationException("Key " + fieldName + " has a value " + x + " of invalid type (expected: " + expectedType + ")");
+				if (!isObjectOfExpectedType(examinedObject, expectedType))
+					throw new ValidationException("Key " + fieldName + " has a value " + examinedObject + " of invalid type (expected: " + expectedType + ")");
 
-				values.put(fieldName, x);
+				values.put(fieldName, examinedObject);
 			}
 			
 		}

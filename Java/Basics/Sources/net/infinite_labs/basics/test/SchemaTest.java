@@ -1,5 +1,6 @@
 package net.infinite_labs.basics.test;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -177,5 +178,80 @@ public class SchemaTest {
 		}
 		
 		assertNotNull(ex);
+	}
+	
+	interface Fruit {
+		String name();
+	}
+	
+	interface OneFruitBox {
+		Fruit fruit();
+	}
+	
+	@Test
+	public void testEmbeddedSchemas() throws Exception {
+		JSONObject pear = new JSONObject();
+		pear.put("name", "pear");
+		
+		JSONObject fruitBox = new JSONObject();
+		fruitBox.put("fruit", pear);
+		
+		OneFruitBox box = Schema.make(fruitBox, OneFruitBox.class);
+		assertNotNull(box);
+		assertNotNull(box.fruit());
+		
+		assertThat(box.fruit().name(), is("pear"));
+	}
+	
+	interface ShoppingBagOfFruit {
+		@Contains(Fruit.class) List<Fruit> allFruit();
+	}
+	
+	@Test
+	public void testArraysOfEmbeddedSchemas() throws Exception {
+		JSONObject pear = new JSONObject();
+		pear.put("name", "pear");
+		
+		JSONObject apple = new JSONObject();
+		apple.put("name", "apple");
+		
+		JSONObject shoppingBag = new JSONObject();
+		shoppingBag.put("allFruit", new JSONArray(Arrays.asList(pear, apple)));
+		
+		ShoppingBagOfFruit bag = Schema.make(shoppingBag, ShoppingBagOfFruit.class);
+		assertNotNull(bag);
+		assertNotNull(bag.allFruit());
+		
+		assertThat(bag.allFruit().size(), is(2));
+		assertThat(bag.allFruit().get(0).name(), is("pear"));
+		assertThat(bag.allFruit().get(1).name(), is("apple"));
+	}
+	
+	interface OwnedFruitsShelf {
+		@Contains(Fruit.class) Map<String, Fruit> fruitByOwner();
+	}
+	
+	@Test
+	public void testMapsOfEmbeddedSchemas() throws Exception {
+		JSONObject pear = new JSONObject();
+		pear.put("name", "pear");
+		
+		JSONObject apple = new JSONObject();
+		apple.put("name", "apple");
+		
+		JSONObject owners = new JSONObject();
+		owners.put("John", pear);
+		owners.put("Jack", apple);
+		
+		JSONObject shelfMap = new JSONObject();
+		shelfMap.put("fruitByOwner", owners);
+		
+		OwnedFruitsShelf shelf = Schema.make(shelfMap, OwnedFruitsShelf.class);
+		assertNotNull(shelf);
+		assertNotNull(shelf.fruitByOwner());
+		
+		assertThat(shelf.fruitByOwner().size(), is(2));
+		assertThat(shelf.fruitByOwner().get("John").name(), is("pear"));
+		assertThat(shelf.fruitByOwner().get("Jack").name(), is("apple"));
 	}
 }
