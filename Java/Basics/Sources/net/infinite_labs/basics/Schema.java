@@ -85,7 +85,7 @@ public class Schema {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static <T> T make(Object source, Class<T> interf) throws ValidationException {
+	public static <T> T make(Object source, final Class<T> interf) throws ValidationException {
 		if (source instanceof byte[]) {
 			try {
 				source = new String((byte[]) source, "UTF-8");
@@ -136,21 +136,28 @@ public class Schema {
 				
 				Contains containsNote = m.getAnnotation(Contains.class);
 				
+				Class<?> expectedValuesType = Object.class;
+				if (containsNote != null)
+					expectedValuesType = containsNote.value();
+
+				if (containsNote != null && expectedValuesType == null)
+					throw new IllegalStateException("Class " + m.getDeclaringClass() + " has a field " + fieldName + " with a @Contains annotation that has no class value.");
+				
 				HashMap<String, Object> submap = new HashMap<String, Object>();
 				while (i.hasNext()) {
 					String submapKey = (String) i.next();
 					Object submapValue = examinedJSONObject.opt(submapKey); // we know it will never return null.
 					
-					boolean isPayload = containsNote.value().isInterface();
+					boolean isPayload = expectedValuesType.isInterface();
 					if (isPayload) {
 						try {
-							submap.put(submapKey, Schema.make(submapValue, containsNote.value()));
+							submap.put(submapKey, Schema.make(submapValue, expectedValuesType));
 						} catch (ValidationException e) {
 							throw new ValidationException("Array of key " + fieldName + " contains a value that does not validate as a payload required by @Contents " + containsNote.value(), e);
 						}
 						
-					} else if (containsNote != null) {
-						if (!isObjectOfExpectedType(submapValue, containsNote.value()))
+					} else {
+						if (expectedValuesType != null && !isObjectOfExpectedType(submapValue, expectedValuesType))
 							throw new ValidationException("Map of key " + fieldName + " contains a value " + examinedObject + " which is not of the @Contains-mandated type " + containsNote.value());
 
 						submap.put(submapKey, submapValue); 
@@ -169,21 +176,28 @@ public class Schema {
 				
 				Contains containsNote = m.getAnnotation(Contains.class);
 				
+				Class<?> expectedValuesType = Object.class;
+				if (containsNote != null)
+					expectedValuesType = containsNote.value();
+
+				if (containsNote != null && expectedValuesType == null)
+					throw new IllegalStateException("Class " + m.getDeclaringClass() + " has a field " + fieldName + " with a @Contains annotation that has no class value.");
+
 				ArrayList<Object> sublist = new ArrayList<Object>();
 				for (int i = 0; i < examinedJSONArray.length(); i++) {
 					Object sublistValue = examinedJSONArray.opt(i); // we know it will never return null.
 					
 					if (containsNote != null) {
-						boolean isPayload = containsNote.value().isInterface();
+						boolean isPayload = expectedValuesType.isInterface();
 						if (isPayload) {
 							try {
-								sublist.add(Schema.make(sublistValue, containsNote.value()));
+								sublist.add(Schema.make(sublistValue, expectedValuesType));
 							} catch (ValidationException e) {
 								throw new ValidationException("Array of key " + fieldName + " contains a value that does not validate as a payload required by @Contents " + containsNote.value(), e);
 							}
 							
 						} else {
-							if (!isObjectOfExpectedType(sublistValue, containsNote.value()))
+							if (expectedValuesType != null && !isObjectOfExpectedType(sublistValue, expectedValuesType))
 								throw new ValidationException("Array of key " + fieldName + " contains a value " + examinedObject + " which is not of the @Contains-mandated type " + containsNote.value());
 							
 							sublist.add(sublistValue);							
@@ -211,11 +225,15 @@ public class Schema {
 			
 		}
 		
-		return (T) Proxy.newProxyInstance(interf.getClassLoader(), new Class<?>[] { interf }, new InvocationHandler() {
+		T something = (T) Proxy.newProxyInstance(interf.getClassLoader(), new Class<?>[] { interf }, new InvocationHandler() {
 			
 			@Override
 			public Object invoke(Object self, Method method, Object[] args)
 					throws Throwable {
+				
+				if (method.getName().equals("toString")) {
+					return "(a schema object of type " + interf + " with values " + values + ")";
+				}
 				
 				String name = method.getName();
 				Object returnValue = values.get(name);
@@ -227,5 +245,9 @@ public class Schema {
 				
 			}
 		});
+		
+		if (something == null)
+			throw new IllegalStateException("We should never produce a null object");
+		return something;
 	}
 }
