@@ -26,8 +26,8 @@
 + (NSBundle*) nibBundle;
 - (id) init;
 
-@property(retain) IBOutlet UIView* view;
-@property(readonly, getter=isViewLoaded) BOOL viewLoaded;
+@property(retain, nonatomic) IBOutlet UIView* view;
+@property(readonly, nonatomic, getter=isViewLoaded) BOOL viewLoaded;
 - (void) loadView;
 - (void) viewDidLoad;
 

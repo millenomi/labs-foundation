@@ -46,19 +46,19 @@ typedef NSInteger ILRotationStyle;
 	BOOL hasSetInitialManagedOutlets;
 }
 
-@property ILRotationStyle rotationStyle;
+@property(nonatomic) ILRotationStyle rotationStyle;
 
-@property BOOL changesNavigationBarStyle;
-@property UIBarStyle navigationBarStyle;
-@property(retain) UIColor* navigationBarTintColor;
-@property BOOL navigationBarTranslucent;
+@property(nonatomic) BOOL changesNavigationBarStyle;
+@property(nonatomic) UIBarStyle navigationBarStyle;
+@property(retain, nonatomic) UIColor* navigationBarTintColor;
+@property(nonatomic) BOOL navigationBarTranslucent;
 
-@property BOOL restoresNavigationBarStyleOnDisappearing;
+@property(nonatomic) BOOL restoresNavigationBarStyleOnDisappearing;
 
-@property BOOL changesStatusBarStyle;
-@property UIStatusBarStyle statusBarStyle;
+@property(nonatomic) BOOL changesStatusBarStyle;
+@property(nonatomic) UIStatusBarStyle statusBarStyle;
 
-@property BOOL restoresStatusBarStyleOnDisappearing;
+@property(nonatomic) BOOL restoresStatusBarStyleOnDisappearing;
 
 // quickly sets up style changes that go together with the given bar style.
 // it sets up the VC to restore older styles on disappearing, sets the navigation bar style/translucency/tint to match the constant passed, and if translucent also sets the VC to go fullscreen.
