@@ -25,6 +25,12 @@
 	to = nil; \
 } while (0)
 
+#define ILAs(cls, exp) ILRequireOfClass([cls class], (exp))
+
+static inline id ILRequireOfClass(Class c, id obj) {
+	return [obj isKindOfClass:c]? obj : nil;
+}
+
 #endif
 
 #endif // ILShorthand_H
