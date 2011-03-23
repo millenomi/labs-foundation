@@ -11,6 +11,9 @@
 
 @interface ILNIBTableViewCell : UITableViewCell {}
 
+// creates cells with -init if not found reusable.
++ findOrCreateReusableCellForTableView:(UITableView*) tableView;
+
 + reuseIdentifier; // the default reuse identifier for reusable instances of this class, used by initReusable:. 
 
 - (id) initWithNibName:(NSString*) name bundle:(NSBundle*) bundle reuseIdentifier:(NSString*) reuseIdent;
