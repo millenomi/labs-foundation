@@ -113,4 +113,14 @@ static NSMutableDictionary* ILNIBTableViewCellCache = nil;
 
 @synthesize cellContentView;
 
++ findOrCreateReusableCellForTableView:(UITableView*) tableView;
+{
+	id cell = [tableView dequeueReusableCellWithIdentifier:[self reuseIdentifier]];
+
+	if (!cell)
+		cell = [[[self alloc] init] autorelease];
+	
+	return cell;
+}
+
 @end
