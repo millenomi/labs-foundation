@@ -1,12 +1,12 @@
 //
-//  ILAccumulator.c
+//  ILBuffer.c
 //  Basics
 //
 //  Created by ∞ on 23/03/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#include "ILAccumulator.h"
+#include "ILBuffer.h"
 
 #include <stdlib.h>
 

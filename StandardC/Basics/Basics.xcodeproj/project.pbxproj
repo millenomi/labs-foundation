@@ -9,20 +9,24 @@
 /* Begin PBXBuildFile section */
 		152C830E133A2D2100CDB837 /* ILAlloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 152C830C133A2D2100CDB837 /* ILAlloc.c */; };
 		152C830F133A2D2100CDB837 /* ILAlloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 152C830D133A2D2100CDB837 /* ILAlloc.h */; };
-		152C8312133A30B300CDB837 /* ILAccumulator.c in Sources */ = {isa = PBXBuildFile; fileRef = 152C8310133A30B300CDB837 /* ILAccumulator.c */; };
-		152C8313133A30B300CDB837 /* ILAccumulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 152C8311133A30B300CDB837 /* ILAccumulator.h */; };
+		152C8312133A30B300CDB837 /* ILBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 152C8310133A30B300CDB837 /* ILBuffer.c */; };
+		152C8313133A30B300CDB837 /* ILBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 152C8311133A30B300CDB837 /* ILBuffer.h */; };
 		152C8316133A38A400CDB837 /* ILStateMachine.c in Sources */ = {isa = PBXBuildFile; fileRef = 152C8314133A38A400CDB837 /* ILStateMachine.c */; };
 		152C8317133A38A400CDB837 /* ILStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 152C8315133A38A400CDB837 /* ILStateMachine.h */; };
+		15CC537C133B5AA8006F97C7 /* ILUTF8.c in Sources */ = {isa = PBXBuildFile; fileRef = 15CC537A133B5AA8006F97C7 /* ILUTF8.c */; };
+		15CC537D133B5AA8006F97C7 /* ILUTF8.h in Headers */ = {isa = PBXBuildFile; fileRef = 15CC537B133B5AA8006F97C7 /* ILUTF8.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		152C8305133A2D0B00CDB837 /* libBasics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBasics.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		152C830C133A2D2100CDB837 /* ILAlloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ILAlloc.c; sourceTree = "<group>"; };
 		152C830D133A2D2100CDB837 /* ILAlloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILAlloc.h; sourceTree = "<group>"; };
-		152C8310133A30B300CDB837 /* ILAccumulator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ILAccumulator.c; sourceTree = "<group>"; };
-		152C8311133A30B300CDB837 /* ILAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILAccumulator.h; sourceTree = "<group>"; };
+		152C8310133A30B300CDB837 /* ILBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ILBuffer.c; sourceTree = "<group>"; };
+		152C8311133A30B300CDB837 /* ILBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILBuffer.h; sourceTree = "<group>"; };
 		152C8314133A38A400CDB837 /* ILStateMachine.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ILStateMachine.c; sourceTree = "<group>"; };
 		152C8315133A38A400CDB837 /* ILStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILStateMachine.h; sourceTree = "<group>"; };
+		15CC537A133B5AA8006F97C7 /* ILUTF8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ILUTF8.c; sourceTree = "<group>"; };
+		15CC537B133B5AA8006F97C7 /* ILUTF8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILUTF8.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,10 +45,12 @@
 			children = (
 				152C830C133A2D2100CDB837 /* ILAlloc.c */,
 				152C830D133A2D2100CDB837 /* ILAlloc.h */,
-				152C8310133A30B300CDB837 /* ILAccumulator.c */,
-				152C8311133A30B300CDB837 /* ILAccumulator.h */,
+				152C8310133A30B300CDB837 /* ILBuffer.c */,
+				152C8311133A30B300CDB837 /* ILBuffer.h */,
 				152C8314133A38A400CDB837 /* ILStateMachine.c */,
 				152C8315133A38A400CDB837 /* ILStateMachine.h */,
+				15CC537A133B5AA8006F97C7 /* ILUTF8.c */,
+				15CC537B133B5AA8006F97C7 /* ILUTF8.h */,
 				152C8306133A2D0B00CDB837 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,8 +71,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				152C830F133A2D2100CDB837 /* ILAlloc.h in Headers */,
-				152C8313133A30B300CDB837 /* ILAccumulator.h in Headers */,
+				152C8313133A30B300CDB837 /* ILBuffer.h in Headers */,
 				152C8317133A38A400CDB837 /* ILStateMachine.h in Headers */,
+				15CC537D133B5AA8006F97C7 /* ILUTF8.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,8 +125,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				152C830E133A2D2100CDB837 /* ILAlloc.c in Sources */,
-				152C8312133A30B300CDB837 /* ILAccumulator.c in Sources */,
+				152C8312133A30B300CDB837 /* ILBuffer.c in Sources */,
 				152C8316133A38A400CDB837 /* ILStateMachine.c in Sources */,
+				15CC537C133B5AA8006F97C7 /* ILUTF8.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +209,7 @@
 				152C830B133A2D0B00CDB837 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

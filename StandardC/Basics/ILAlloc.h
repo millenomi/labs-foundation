@@ -1,5 +1,5 @@
 //
-//  ILAccumulator.h
+//  ILBuffer.h
 //  Basics
 //
 //  Created by ∞ on 23/03/11.
