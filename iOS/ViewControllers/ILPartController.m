@@ -18,7 +18,7 @@
 
 - (id) initWithNibName:(NSString*) name bundle:(NSBundle*) b;
 {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		nibName = [name copy];
 		nibBundle = b? [b retain] : [[self class] nibBundle];
 		
