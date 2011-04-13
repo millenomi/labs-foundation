@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1556B1CF128859FA0082395C /* ILViewAnimationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556B1CE128859FA0082395C /* ILViewAnimationTools.h */; };
-		155A6E82129EBCFD00464FF1 /* ILChoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6E80129EBCFD00464FF1 /* ILChoreography.h */; };
+		1556B1CF128859FA0082395C /* ILViewAnimationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556B1CE128859FA0082395C /* ILViewAnimationTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		155A6E82129EBCFD00464FF1 /* ILChoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6E80129EBCFD00464FF1 /* ILChoreography.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155A6E83129EBCFD00464FF1 /* ILChoreography.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A6E81129EBCFD00464FF1 /* ILChoreography.m */; };
-		155A6E8C129EBDCD00464FF1 /* ILSlideFromBottomChoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6E8A129EBDCD00464FF1 /* ILSlideFromBottomChoreography.h */; };
+		155A6E8C129EBDCD00464FF1 /* ILSlideFromBottomChoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6E8A129EBDCD00464FF1 /* ILSlideFromBottomChoreography.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155A6E8D129EBDCD00464FF1 /* ILSlideFromBottomChoreography.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A6E8B129EBDCD00464FF1 /* ILSlideFromBottomChoreography.m */; };
-		155A6E90129EC01200464FF1 /* ILReversibleChoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6E8E129EC01200464FF1 /* ILReversibleChoreography.h */; };
+		155A6E90129EC01200464FF1 /* ILReversibleChoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6E8E129EC01200464FF1 /* ILReversibleChoreography.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155A6E91129EC01200464FF1 /* ILReversibleChoreography.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A6E8F129EC01200464FF1 /* ILReversibleChoreography.m */; };
-		155A6EC8129EC37400464FF1 /* ILGrowFromPointChoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6EC6129EC37400464FF1 /* ILGrowFromPointChoreography.h */; };
+		155A6EC8129EC37400464FF1 /* ILGrowFromPointChoreography.h in Headers */ = {isa = PBXBuildFile; fileRef = 155A6EC6129EC37400464FF1 /* ILGrowFromPointChoreography.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		155A6EC9129EC37400464FF1 /* ILGrowFromPointChoreography.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A6EC7129EC37400464FF1 /* ILGrowFromPointChoreography.m */; };
-		15E648881286BC4F005975D2 /* ILCoverWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648861286BC4F005975D2 /* ILCoverWindow.h */; };
+		15E648881286BC4F005975D2 /* ILCoverWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648861286BC4F005975D2 /* ILCoverWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15E648891286BC4F005975D2 /* ILCoverWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E648871286BC4F005975D2 /* ILCoverWindow.m */; };
-		15FBF1D712817EE7005D68B6 /* ILPartController.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FBF1D312817EE7005D68B6 /* ILPartController.h */; };
+		15FBF1D712817EE7005D68B6 /* ILPartController.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FBF1D312817EE7005D68B6 /* ILPartController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15FBF1D812817EE7005D68B6 /* ILPartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FBF1D412817EE7005D68B6 /* ILPartController.m */; };
-		15FBF1D912817EE7005D68B6 /* ILViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FBF1D512817EE7005D68B6 /* ILViewController.h */; };
+		15FBF1D912817EE7005D68B6 /* ILViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FBF1D512817EE7005D68B6 /* ILViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15FBF1DA12817EE7005D68B6 /* ILViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FBF1D612817EE7005D68B6 /* ILViewController.m */; };
 		AA747D9F0F9514B9006C5449 /* ViewControllers_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ViewControllers_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
@@ -254,6 +254,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
+				PUBLIC_HEADERS_FOLDER_PATH = /Headers/iOS/ViewControllers;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -267,6 +268,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
+				PUBLIC_HEADERS_FOLDER_PATH = /Headers/iOS/ViewControllers;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
