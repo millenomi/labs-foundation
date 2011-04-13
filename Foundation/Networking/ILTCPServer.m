@@ -58,6 +58,8 @@ static void ILTCPServerDidReceiveEvent(CFSocketRef socket, CFSocketCallBackType 
 
 - (BOOL) start:(NSError**) e;
 {
+	CFSocketRef serverSocket = NULL;
+	
 	if (self.socket)
 		return YES; // we're already started.
 	
@@ -75,7 +77,7 @@ static void ILTCPServerDidReceiveEvent(CFSocketRef socket, CFSocketCallBackType 
 	SInt32 pickedProtocolFamily;
 	
 	CFSocketContext selfAsSocketContext = {0, self, NULL, NULL, NULL};
-	CFSocketRef serverSocket = CFSocketCreate(kCFAllocatorDefault, PF_INET6, SOCK_STREAM, IPPROTO_TCP, kCFSocketAcceptCallBack, (CFSocketCallBack) &ILTCPServerDidReceiveEvent, &selfAsSocketContext);
+	serverSocket = CFSocketCreate(kCFAllocatorDefault, PF_INET6, SOCK_STREAM, IPPROTO_TCP, kCFSocketAcceptCallBack, (CFSocketCallBack) &ILTCPServerDidReceiveEvent, &selfAsSocketContext);
 	
 	if (serverSocket) {
 		pickedProtocolFamily = PF_INET6;
