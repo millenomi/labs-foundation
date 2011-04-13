@@ -22,23 +22,23 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		1552D96F12B3D57200EA8317 /* ILHostReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 1552D96D12B3D57200EA8317 /* ILHostReachability.h */; };
+		1552D96F12B3D57200EA8317 /* ILHostReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 1552D96D12B3D57200EA8317 /* ILHostReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1552D97012B3D57200EA8317 /* ILHostReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1552D96E12B3D57200EA8317 /* ILHostReachability.m */; };
-		158B8AAF12C0BDF1007CB814 /* ILURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AAD12C0BDF1007CB814 /* ILURLConnectionOperation.h */; };
+		158B8AAF12C0BDF1007CB814 /* ILURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AAD12C0BDF1007CB814 /* ILURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		158B8AB012C0BDF1007CB814 /* ILURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B8AAE12C0BDF1007CB814 /* ILURLConnectionOperation.m */; };
 		158B8AB512C0BE50007CB814 /* NSDateFormatter-RFC2822.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B8AB312C0BE50007CB814 /* NSDateFormatter-RFC2822.m */; };
-		158B8AB612C0BE50007CB814 /* NSDateFormatter-RFC2822.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */; };
-		158B8ACB12C0BF20007CB814 /* ILInMemoryDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */; };
+		158B8AB612C0BE50007CB814 /* NSDateFormatter-RFC2822.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		158B8ACB12C0BF20007CB814 /* ILInMemoryDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		158B8ACC12C0BF20007CB814 /* ILInMemoryDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 158B8ACA12C0BF20007CB814 /* ILInMemoryDownloadOperation.m */; };
 		15B40F1E12D6585C008BB339 /* Networking_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Networking_Prefix.pch */; };
-		15B40F1F12D6585C008BB339 /* NSURL+ILURLResolvingRedirects.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */; };
-		15B40F2012D6585C008BB339 /* NSURL+ILURLParsing.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497D1286CA0E005975D2 /* NSURL+ILURLParsing.h */; };
-		15B40F2112D6585C008BB339 /* NSData+ILIPAddressTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497F1286CA0E005975D2 /* NSData+ILIPAddressTools.h */; };
-		15B40F2212D6585C008BB339 /* ILHostReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 1552D96D12B3D57200EA8317 /* ILHostReachability.h */; };
-		15B40F2312D6585C008BB339 /* ILURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AAD12C0BDF1007CB814 /* ILURLConnectionOperation.h */; };
-		15B40F2412D6585C008BB339 /* NSDateFormatter-RFC2822.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */; };
-		15B40F2512D6585C008BB339 /* ILInMemoryDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */; };
-		15B40F2612D6585C008BB339 /* ILTCPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 15B9F23712CF30410069A01C /* ILTCPServer.h */; };
+		15B40F1F12D6585C008BB339 /* NSURL+ILURLResolvingRedirects.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15B40F2012D6585C008BB339 /* NSURL+ILURLParsing.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497D1286CA0E005975D2 /* NSURL+ILURLParsing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15B40F2112D6585C008BB339 /* NSData+ILIPAddressTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497F1286CA0E005975D2 /* NSData+ILIPAddressTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15B40F2212D6585C008BB339 /* ILHostReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 1552D96D12B3D57200EA8317 /* ILHostReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15B40F2312D6585C008BB339 /* ILURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AAD12C0BDF1007CB814 /* ILURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15B40F2412D6585C008BB339 /* NSDateFormatter-RFC2822.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AB412C0BE50007CB814 /* NSDateFormatter-RFC2822.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15B40F2512D6585C008BB339 /* ILInMemoryDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 158B8AC912C0BF20007CB814 /* ILInMemoryDownloadOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15B40F2612D6585C008BB339 /* ILTCPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 15B9F23712CF30410069A01C /* ILTCPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15B40F2812D6585C008BB339 /* NSURL+ILURLResolvingRedirects.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497A1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m */; };
 		15B40F2912D6585C008BB339 /* NSURL+ILURLParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497C1286CA0E005975D2 /* NSURL+ILURLParsing.m */; };
 		15B40F2A12D6585C008BB339 /* NSData+ILIPAddressTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497E1286CA0E005975D2 /* NSData+ILIPAddressTools.m */; };
@@ -49,15 +49,15 @@
 		15B40F2F12D6585C008BB339 /* ILTCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B9F23812CF30410069A01C /* ILTCPServer.m */; };
 		15B40F3112D6585C008BB339 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		15B40F4D12D6593B008BB339 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B40F4C12D6593B008BB339 /* CoreFoundation.framework */; };
-		15B9F23912CF30410069A01C /* ILTCPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 15B9F23712CF30410069A01C /* ILTCPServer.h */; };
+		15B9F23912CF30410069A01C /* ILTCPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 15B9F23712CF30410069A01C /* ILTCPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15B9F23A12CF30410069A01C /* ILTCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B9F23812CF30410069A01C /* ILTCPServer.m */; };
 		15B9F23C12CF30F30069A01C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B9F23B12CF30F30069A01C /* CFNetwork.framework */; };
 		15E649801286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497A1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.m */; };
-		15E649811286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */; };
+		15E649811286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497B1286CA0E005975D2 /* NSURL+ILURLResolvingRedirects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15E649821286CA0E005975D2 /* NSURL+ILURLParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497C1286CA0E005975D2 /* NSURL+ILURLParsing.m */; };
-		15E649831286CA0E005975D2 /* NSURL+ILURLParsing.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497D1286CA0E005975D2 /* NSURL+ILURLParsing.h */; };
+		15E649831286CA0E005975D2 /* NSURL+ILURLParsing.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497D1286CA0E005975D2 /* NSURL+ILURLParsing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15E649841286CA0E005975D2 /* NSData+ILIPAddressTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6497E1286CA0E005975D2 /* NSData+ILIPAddressTools.m */; };
-		15E649851286CA0E005975D2 /* NSData+ILIPAddressTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497F1286CA0E005975D2 /* NSData+ILIPAddressTools.h */; };
+		15E649851286CA0E005975D2 /* NSData+ILIPAddressTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E6497F1286CA0E005975D2 /* NSData+ILIPAddressTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA747D9F0F9514B9006C5449 /* Networking_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Networking_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -445,6 +445,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
+				PUBLIC_HEADERS_FOLDER_PATH = /Headers/Foundation/Networking;
 			};
 			name = Debug;
 		};
@@ -456,6 +457,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
+				PUBLIC_HEADERS_FOLDER_PATH = /Headers/Foundation/Networking;
 			};
 			name = Release;
 		};
