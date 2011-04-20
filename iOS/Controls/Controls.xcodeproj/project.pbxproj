@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15D4364712844EAC005DBAE3 /* ILNIBTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D4364512844EAC005DBAE3 /* ILNIBTableViewCell.h */; };
+		15D4364712844EAC005DBAE3 /* ILNIBTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D4364512844EAC005DBAE3 /* ILNIBTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15D4364812844EAC005DBAE3 /* ILNIBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D4364612844EAC005DBAE3 /* ILNIBTableViewCell.m */; };
-		15E648391286B8F6005975D2 /* ILStretchableImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648371286B8F6005975D2 /* ILStretchableImageButton.h */; };
+		15E648391286B8F6005975D2 /* ILStretchableImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648371286B8F6005975D2 /* ILStretchableImageButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15E6483A1286B8F6005975D2 /* ILStretchableImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E648381286B8F6005975D2 /* ILStretchableImageButton.m */; };
 		AA747D9F0F9514B9006C5449 /* NIBTableViewCells_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* NIBTableViewCells_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
@@ -90,9 +90,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA747D9F0F9514B9006C5449 /* NIBTableViewCells_Prefix.pch in Headers */,
 				15D4364712844EAC005DBAE3 /* ILNIBTableViewCell.h in Headers */,
 				15E648391286B8F6005975D2 /* ILStretchableImageButton.h in Headers */,
+				AA747D9F0F9514B9006C5449 /* NIBTableViewCells_Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +200,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
+				PUBLIC_HEADERS_FOLDER_PATH = /Headers/iOS/Controls;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -213,6 +214,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
+				PUBLIC_HEADERS_FOLDER_PATH = /Headers/iOS/Controls;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
