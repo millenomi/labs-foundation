@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15D4364712844EAC005DBAE3 /* ILNIBTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D4364512844EAC005DBAE3 /* ILNIBTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15D4364712844EAC005DBAE3 /* ILNIBTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D4364512844EAC005DBAE3 /* ILNIBTableViewCell.h */; settings = {ATTRIBUTES = (); }; };
 		15D4364812844EAC005DBAE3 /* ILNIBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D4364612844EAC005DBAE3 /* ILNIBTableViewCell.m */; };
-		15E648391286B8F6005975D2 /* ILStretchableImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648371286B8F6005975D2 /* ILStretchableImageButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15E648391286B8F6005975D2 /* ILStretchableImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 15E648371286B8F6005975D2 /* ILStretchableImageButton.h */; settings = {ATTRIBUTES = (); }; };
 		15E6483A1286B8F6005975D2 /* ILStretchableImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E648381286B8F6005975D2 /* ILStretchableImageButton.m */; };
 		AA747D9F0F9514B9006C5449 /* NIBTableViewCells_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* NIBTableViewCells_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
@@ -202,6 +202,7 @@
 				PREBINDING = NO;
 				PUBLIC_HEADERS_FOLDER_PATH = /Headers/iOS/Controls;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -216,6 +217,7 @@
 				PREBINDING = NO;
 				PUBLIC_HEADERS_FOLDER_PATH = /Headers/iOS/Controls;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
