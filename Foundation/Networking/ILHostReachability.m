@@ -12,10 +12,10 @@
 
 - (void) updateNetworkWithFlags:(SCNetworkReachabilityFlags) flags;
 
-@property(assign) BOOL reachabilityKnown;
+@property(nonatomic, assign) BOOL reachabilityKnown;
 
-@property(assign) BOOL reachable;
-@property(assign) BOOL requiresRoutingOnWWAN;
+@property(nonatomic, assign) BOOL reachable;
+@property(nonatomic, assign) BOOL requiresRoutingOnWWAN;
 
 
 @end

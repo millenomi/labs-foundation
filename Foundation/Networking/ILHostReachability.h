@@ -24,12 +24,12 @@
 
 - (id) initWithHostAddressString:(NSString*) host;
 
-@property(assign) id <ILHostReachabilityDelegate> delegate;
+@property(nonatomic, assign) id <ILHostReachabilityDelegate> delegate;
 
-@property(readonly, assign) BOOL reachabilityKnown;
+@property(nonatomic, readonly, assign) BOOL reachabilityKnown;
 
-@property(readonly, assign) BOOL reachable;
-@property(readonly, assign) BOOL requiresRoutingOnWWAN;
+@property(nonatomic, readonly, assign) BOOL reachable;
+@property(nonatomic, readonly, assign) BOOL requiresRoutingOnWWAN;
 
 - (void) stop;
 
