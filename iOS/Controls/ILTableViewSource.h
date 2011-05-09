@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@interface UITableViewCell (ILTableViewAdditions)
+
+/**
+ This property can be used to specify an action on each cell to be executed when the cell is selected.
+ 
+ The action is not executed automatically by the cell; a delegate must execute it when needed. Note however that ILTableViewSource executes this block if non-nil as part of its UITableViewDelegate implementation.
+ */
+@property(copy, nonatomic) void (^didSelect)();
+
+@end
+
+
 @class ILTableViewSource, ILTableViewSection;
 @protocol ILTableViewSection, ILTableViewSectionMutationDelegate;
 

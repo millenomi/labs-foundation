@@ -8,6 +8,25 @@
 
 #import "ILTableViewSource.h"
 
+#import "objc/runtime.h"
+
+static char ILTableViewCellDidSelectKey = 0;
+
+@implementation UITableViewCell (ILTableViewAdditions)
+
+- (void(^)()) didSelect;
+{
+	return objc_getAssociatedObject(self, &ILTableViewCellDidSelectKey);
+}
+
+- (void) setDidSelect:(void(^)()) s;
+{
+	objc_setAssociatedObject(self, &ILTableViewCellDidSelectKey, s, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+@end
+
+
 @interface ILTableViewSource () <ILTableViewSectionMutationDelegate>
 @end
 
@@ -105,6 +124,13 @@ static const char ILTableViewObservingContext = 0;
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
 {
 	return [[_sectionsArray objectAtIndex:section] title];
+}
+
+- (void) tableView:(UITableView *) tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+	UITableViewCell* cell = [tv cellForRowAtIndexPath:indexPath];
+	if (cell.didSelect)
+		(cell.didSelect)();
 }
 
 // -----------------------------
