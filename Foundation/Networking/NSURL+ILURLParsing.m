@@ -74,13 +74,15 @@
 		if (!first)
 			[queryString appendString:@"&"];
 		
-		NSString* toAppend = [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef) key, NULL, (CFStringRef) @"+", kCFStringEncodingUTF8)) autorelease];
+		NSString* toAppend = [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef) key, NULL, (CFStringRef) @"+&=", kCFStringEncodingUTF8)) autorelease];
+		toAppend = [toAppend stringByReplacingOccurrencesOfString:@"&" withString:@"%26"];
 		[queryString appendString:toAppend];
 		
 		id value = [self objectForKey:key];
 		if (![value isEqual:[NSNull null]]) {
 			[queryString appendString:@"="];
-			NSString* toAppend = [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef) value, NULL, (CFStringRef) @"+", kCFStringEncodingUTF8)) autorelease];
+			NSString* toAppend = [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef) value, NULL, (CFStringRef) @"+&=", kCFStringEncodingUTF8)) autorelease];
+			toAppend = [toAppend stringByReplacingOccurrencesOfString:@"&" withString:@"%26"];
 			[queryString appendString:toAppend];
 		}
 		
