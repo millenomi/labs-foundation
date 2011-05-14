@@ -15,6 +15,12 @@
 
 @end
 
+@interface NSString (ILURLParsing)
+
+- (NSDictionary*) dictionaryByDecodingQueryString;
+
+@end
+
 @interface NSDictionary (ILURLParsing)
 
 - (NSString*) queryString;

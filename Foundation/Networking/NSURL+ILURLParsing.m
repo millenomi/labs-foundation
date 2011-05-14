@@ -24,7 +24,16 @@
 			query = [resSpecifier substringFromIndex:r.location + 1];
 	}
 	
-	NSArray* keyValuePairs = [query componentsSeparatedByString:@"&"];
+	return [query dictionaryByDecodingQueryString];
+}
+
+@end
+
+@implementation NSString (ILURLParsing)
+
+- (NSDictionary*) dictionaryByDecodingQueryString;
+{
+	NSArray* keyValuePairs = [self componentsSeparatedByString:@"&"];
 	
 	NSMutableDictionary* dict = [NSMutableDictionary dictionary];
 	for (NSString* pair in keyValuePairs) {
@@ -46,7 +55,7 @@
 			[dict setObject:[value stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] forKey:[key stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 		else
 			[dict setObject:[NSNull null] forKey:[key stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-			
+		
 	}
 	
 	return dict;
