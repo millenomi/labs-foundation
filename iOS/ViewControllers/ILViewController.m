@@ -292,12 +292,12 @@
 {
 	BOOL wasLoaded = [self isViewLoaded];
 	if (wasLoaded && !self.view.superview)
-		NSLog(@"%@ has view %@ without superview, may receive an unload soon.", self, self.view);
+		NSLog(@"%@ (of class %@) has view %@ without superview, may receive an unload soon.", self, NSStringFromClass([self class]), self.view);
 
 	[super didReceiveMemoryWarning];
 	
 	if (![self isViewLoaded] && wasLoaded)
-		NSLog(@"%@ has unloaded its view in response to a memory warning.", self);
+		NSLog(@"%@ (of class %@) has unloaded its view in response to a memory warning.", self, NSStringFromClass([self class]));
 }
 
 @end
