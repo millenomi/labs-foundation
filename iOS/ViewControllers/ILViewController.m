@@ -286,4 +286,18 @@
 	va_end(l);
 }
 
+#pragma mark Debugging aids
+
+- (void) didReceiveMemoryWarning;
+{
+	BOOL wasLoaded = [self isViewLoaded];
+	if (wasLoaded && !self.view.superview)
+		NSLog(@"%@ has view %@ without superview, may receive an unload soon.", self, self.view);
+
+	[super didReceiveMemoryWarning];
+	
+	if (![self isViewLoaded] && wasLoaded)
+		NSLog(@"%@ has unloaded its view in response to a memory warning.", self);
+}
+
 @end
