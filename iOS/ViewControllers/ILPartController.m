@@ -20,7 +20,7 @@
 {
 	if ((self = [super init])) {
 		nibName = [name copy];
-		nibBundle = b? [b retain] : [[self class] nibBundle];
+		nibBundle = b? [b retain] : [[[self class] nibBundle] retain];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
 	}
