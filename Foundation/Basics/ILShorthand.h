@@ -31,6 +31,8 @@ static inline id ILRequireOfClass(Class c, id obj) {
 	return [obj isKindOfClass:c]? obj : nil;
 }
 
+// --------------- Property modifiers
+
 #define ILIsCopy copy, nonatomic
 #define ILIsReadOnly readonly, nonatomic
 
@@ -46,6 +48,6 @@ static inline id ILRequireOfClass(Class c, id obj) {
 
 #endif
 
-#endif
+#endif // __OBJC__
 
 #endif // ILShorthand_H
