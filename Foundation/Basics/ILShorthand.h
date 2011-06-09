@@ -31,6 +31,21 @@ static inline id ILRequireOfClass(Class c, id obj) {
 	return [obj isKindOfClass:c]? obj : nil;
 }
 
+#define ILIsCopy copy, nonatomic
+#define ILIsReadOnly readonly, nonatomic
+
+#if ILABS_USES_ARC
+
+	#define ILIsStrong strong, nonatomic
+	#define ILIsWeak weak, nonatomic
+
+#else
+
+	#define ILIsStrong retain, nonatomic
+	#define ILIsWeak assign, nonatomic
+
+#endif
+
 #endif
 
 #endif // ILShorthand_H
