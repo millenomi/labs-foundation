@@ -68,6 +68,9 @@ static NSMutableDictionary* ILNIBTableViewCellCache = nil;
 {
 	if ((self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdent])) {
 		
+		if (!name)
+			name = NSStringFromClass([self class]);
+		
 		if (!bundle)
 			bundle = [NSBundle bundleForClass:[self class]];
 		
@@ -91,7 +94,7 @@ static NSMutableDictionary* ILNIBTableViewCellCache = nil;
 
 - (id) initReusable:(BOOL) allowReuse;
 {
-	return [self initWithNibName:NSStringFromClass(self->isa) bundle:[NSBundle bundleForClass:self->isa] reuseIdentifier:(allowReuse? [self->isa reuseIdentifier] : nil)];
+	return [self initWithNibName:nil bundle:[NSBundle bundleForClass:self->isa] reuseIdentifier:(allowReuse? [self->isa reuseIdentifier] : nil)];
 }
 
 - (id) init;
