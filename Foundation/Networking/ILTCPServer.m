@@ -19,6 +19,8 @@
 #import <netinet/in.h>
 #import <unistd.h>
 
+#define kILTCPServerPortUseAny (0)
+
 @interface ILTCPServer ()
 
 @property(nonatomic, retain) id socket;
@@ -57,6 +59,11 @@ static void ILTCPServerDidReceiveEvent(CFSocketRef socket, CFSocketCallBackType 
 @synthesize port;
 
 - (BOOL) start:(NSError**) e;
+{
+	return [self startListeningWithPort:kILTCPServerPortUseAny error:e];
+}
+
+- (BOOL) startListeningWithPort:(uint16_t) desiredPort error:(NSError **)e;
 {
 	CFSocketRef serverSocket = NULL;
 	
@@ -105,9 +112,9 @@ static void ILTCPServerDidReceiveEvent(CFSocketRef socket, CFSocketCallBackType 
 		memset(&addressStruct6, 0, sizeof(addressStruct6));
 		addressStruct6.sin6_len = sizeof(addressStruct6);
 		addressStruct6.sin6_family = AF_INET6;
-		addressStruct6.sin6_port = 0;
+		addressStruct6.sin6_port = htons(desiredPort);
 		addressStruct6.sin6_flowinfo = 0;
-		addressStruct6.sin6_addr = in6addr_any;
+		addressStruct6.sin6_addr = in6addr_any; // TODO
 
 		address = [NSData dataWithBytes:&addressStruct6 length:sizeof(addressStruct6)];
 	} else {
@@ -115,8 +122,8 @@ static void ILTCPServerDidReceiveEvent(CFSocketRef socket, CFSocketCallBackType 
 		memset(&addressStruct4, 0, sizeof(addressStruct4));
 		addressStruct4.sin_len = sizeof(addressStruct4);
 		addressStruct4.sin_family = AF_INET;
-		addressStruct4.sin_port = 0;
-		addressStruct4.sin_addr.s_addr = htonl(INADDR_ANY);
+		addressStruct4.sin_port = htons(desiredPort);
+		addressStruct4.sin_addr.s_addr = htonl(INADDR_ANY); // TODO
 		
 		address = [NSData dataWithBytes:&addressStruct4 length:sizeof(addressStruct4)];
 	}
@@ -140,6 +147,7 @@ static void ILTCPServerDidReceiveEvent(CFSocketRef socket, CFSocketCallBackType 
 	
 	self.socket = (id) serverSocket;
 
+	CFRelease(serverSocket); // balances the Create above.
 	return YES;
 	
 error:
@@ -189,6 +197,9 @@ static void ILTCPServerDidReceiveEvent(CFSocketRef socket, CFSocketCallBackType 
 	NSOutputStream* output = nil;
 	
 	CFStreamCreatePairWithSocket(kCFAllocatorDefault, handle, (CFReadStreamRef*) &input, (CFWriteStreamRef*) &output);
+	
+	[NSMakeCollectable(input) autorelease];
+	[NSMakeCollectable(output) autorelease];
 	
 	if (!input || !output)
 		return NO;

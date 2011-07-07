@@ -35,6 +35,8 @@ enum {
 @property(nonatomic, assign) id <ILTCPServerDelegate> delegate;
 @property(nonatomic, readonly) uint16_t port;
 
+- (BOOL) startListeningWithPort:(uint16_t) desiredPort error:(NSError **)e;
+
 - (BOOL) start:(NSError **)e;
 - (void) stop;
 
